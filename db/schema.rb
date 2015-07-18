@@ -11,9 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150718150850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "url_key"
+    t.text     "message",         default: "",    null: false
+    t.string   "password_digest",                 null: false
+    t.boolean  "seen",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "pages", ["seen", "url_key"], name: "index_pages_on_seen_and_url_key", using: :btree
 
 end
