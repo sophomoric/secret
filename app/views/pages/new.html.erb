@@ -1,6 +1,13 @@
+<%= render partial: "description" %>
+
 <%= simple_form_for(@page) do |f| %>
-  <%= f.input :url_key, as: :string %>
-  <%= f.input :message %>
+  <%= f.input(
+    :url_key,
+    as: :string,
+    placeholder: "url-key-example",
+    label: "Your Message's Url: #{root_url}url-key-example"
+  ) %>
+  <%= f.input :message, placeholder: "your secret message here..." %>
   <%= f.input :password %>
   <%= f.button :submit %>
 <% end %>
