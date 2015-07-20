@@ -1,1 +1,7 @@
-Your secret page is available at <%= @page.url_key %>
+<p>
+  Your secret page is available at
+  <%= link_to(
+    root_url + @page.url_key,
+    root_url + @page.url_key
+  ) %>
+</p>
