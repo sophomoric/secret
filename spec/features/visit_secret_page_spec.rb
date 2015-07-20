@@ -31,6 +31,16 @@ feature "Visit Secret Page" do
     end.to raise_error(ActionController::RoutingError)
   end
 
+  scenario "creator used markdown" do
+    secret_page = create(
+      :page,
+      message: "<a href='https://www.google.com'>google</a>"
+    )
+    visit_and_authenticate_for(secret_page)
+
+    expect(page).to have_link("google")
+  end
+
   def visit_and_authenticate_for(secret_page)
     visit "/#{secret_page.url_key}"
     fill_in "Password", with: secret_page.password
