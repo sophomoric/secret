@@ -1,4 +1,4 @@
-<%= simple_form_for :permission, url: "permissions/" do |f| %>
+<%= simple_form_for :permission, url: "permissions/", remote: true do |f| %>
   <%= f.input :password %>
   <%= f.input :url_key, as: :hidden, input_html: { value: @page.url_key } %>
   <%= f.button :submit, "Submit" %>
