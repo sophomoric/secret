@@ -9,13 +9,7 @@ class PermissionsController < ApplicationController
 
   def create
     @page = Page.where(seen: false, url_key: url_key).first
-    permission = Permission.new(@page)
-    if permission.grant_for?(page_password)
-      @page.update!(seen: true)
-      render "pages/show"
-    else
-      redirect_to :back
-    end
+    redirect_to page_url(@page, password: page_password)
   end
 
   private
