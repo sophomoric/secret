@@ -1,3 +1,7 @@
+#load environment variables from shared .env file
+require "dotenv"
+Dotenv.load "../../shared/config/.env"
+
 require Rails.root.join("config/smtp")
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
