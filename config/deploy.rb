@@ -3,7 +3,7 @@ set :repo_url, 'git@github.com:sophomoric/secret.git'
 
 set :deploy_to, '/home/deploy/secret'
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml .env}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
