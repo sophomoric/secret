@@ -12,9 +12,9 @@ class PermissionsController < ApplicationController
     permission = Permission.new(@page)
     if permission.grant_for?(page_password)
       @page.update!(seen: true)
-      render "pages/show"
+      render json: MarkdownHelper.new(@page.message).render.to_json
     else
-      redirect_to :back
+      render json: {}, status: 401
     end
   end
 
