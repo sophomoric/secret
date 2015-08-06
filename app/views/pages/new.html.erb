@@ -7,7 +7,15 @@
     placeholder: "url-key-example",
     label: "Your Message's Url: #{root_url}url-key-example"
   ) %>
-  <%= f.input :message, placeholder: "your secret message here..." %>
+  <%= f.input(
+    :message,
+    placeholder: "your secret message here...",
+    input_html: { id: "text-input", oninput: "window.editor.update()" }
+  ) %>
+
+  <h3>Preview</h3>
+  <div id="preview"></div>
+
   <%= f.input :password %>
   <%= f.button :submit %>
 <% end %>
