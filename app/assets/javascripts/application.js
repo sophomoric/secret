@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require markdown
+//= require preview
 //= require_tree .
