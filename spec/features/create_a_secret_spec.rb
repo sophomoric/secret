@@ -9,7 +9,7 @@ feature "Visitor Creates a Secret" do
     click_button "Create"
 
     expect(page).to have_content("example")
-    expect(Page.count).to eq(1)
+    expect(Page.last.message).to eq("Stop Rebulba!")
   end
 
   scenario "page with errors" do
