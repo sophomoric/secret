@@ -18,7 +18,7 @@ gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
 gem "rack-canonical-host"
-gem "rails", "4.2.1"
+gem "rails"
 gem "recipient_interceptor"
 gem "redcarpet"
 gem "refills"
@@ -44,7 +44,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit", ">= 1.2.0"
+  gem "capybara-webkit"
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
@@ -61,6 +61,6 @@ end
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
+gem 'capistrano-rbenv'
 
 gem "dotenv-rails"
