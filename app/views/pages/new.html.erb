@@ -8,6 +8,8 @@
     label: "Your Message's Url: #{root_url}url-key-example"
   ) %>
   <%= f.input :message, placeholder: "your secret message here..." %>
+
+  <%= render partial: "emoticons" %>
   <div class="preview-box">
     <p>your secret message preview here...</p>
   </div>

@@ -14,4 +14,12 @@ feature "Visitor views markdown preview", js: true do
 
     expect(page).to have_text("test-it")
   end
+
+  scenario "click emoticons on desktop" do
+    visit new_page_path
+    fill_in "Message", with: "lol "
+    smiley_face = page.all("ul.emo li").first
+
+    expect(page).to have_text("lol #{smiley_face}")
+  end
 end
