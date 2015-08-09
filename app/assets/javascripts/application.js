@@ -15,3 +15,5 @@
 //= require preview
 //= require url_key
 //= require toggle_password
+//= require paste
+//= require_tree .
