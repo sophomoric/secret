@@ -22,4 +22,11 @@ feature "Visitor views markdown preview", js: true do
 
     expect(page).to have_text("lol #{smiley_face}")
   end
+
+  scenario "pastes a link" do
+    visit new_page_path
+    fill_in "Add Link", with: "image_link"
+
+    expect(page).to have_image("image_link")
+  end
 end

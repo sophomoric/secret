@@ -4,12 +4,6 @@ $(function(){
 
   $emoticons.click(function(event){
     var character = $(event.target).text();
-    addChar(character, $message_input);
+    _h.addChar(character, $message_input);
   });
-
-  var addChar = function(input, $target){
-    var currentValue = $target.val();
-    var newValue = currentValue + input;
-    $target.val(newValue).keyup();
-  };
 });
