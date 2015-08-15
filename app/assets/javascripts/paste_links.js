@@ -7,7 +7,7 @@ $(function(){
     e.preventDefault();
     var url = $paste_link.val();
     var markdown_link = "<img src='" + url + "'>";
-    _h.addChar(markdown_link, $message_input);
+    _h.appendText(markdown_link, $message_input);
     $paste_link.val("");
   });
 });
