@@ -4,6 +4,7 @@ var _h = (function(){
     var newValue = currentValue + input;
     $target.val(newValue).keyup();
   };
+
   return {
     addChar: addChar
   };
