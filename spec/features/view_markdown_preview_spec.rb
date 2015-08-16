@@ -25,8 +25,9 @@ feature "Visitor views markdown preview", js: true do
 
   scenario "pastes a link" do
     visit new_page_path
-    fill_in "Add Link", with: "image_link"
+    fill_in "Paste Link", with: "image_link"
+    click_button "Add"
 
-    expect(page).to have_image("image_link")
+    expect(page).to have_css("img[src*='image_link']")
   end
 end
