@@ -265,7 +265,7 @@ GEM
       rails (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.1)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicorn (4.9.0)
@@ -328,7 +328,7 @@ DEPENDENCIES
   spring-commands-rspec
   timecop
   title
-  uglifier
+  uglifier (>= 2.7.2)
   unicorn
   web-console
 
