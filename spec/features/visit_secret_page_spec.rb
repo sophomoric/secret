@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Visit Secret Page" do
+feature "Visit Secret Page", js: true do
   scenario "authenticate with password" do
     secret_page = create(:page, seen: false)
     visit "/#{secret_page.url_key}"
@@ -27,7 +27,7 @@ feature "Visit Secret Page" do
     expect(page).to have_content(secret_page.message)
 
     expect do
-      visit "/#{secret_page.url_key}"
+      visit_and_authenticate_for(secret_page)
     end.to raise_error(ActionController::RoutingError)
   end
 
@@ -39,6 +39,11 @@ feature "Visit Secret Page" do
     visit_and_authenticate_for(secret_page)
 
     expect(page).to have_link("google")
+    expect(current_path).to eq("/")
+  end
+
+  def current_path
+    URI.parse(current_url).path
   end
 
   def visit_and_authenticate_for(secret_page)
