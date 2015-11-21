@@ -7,4 +7,11 @@ feature "Visitor views markdown preview", js: true do
 
     expect(page).to have_link("example")
   end
+
+  scenario "edits url_key" do
+    visit new_page_path
+    fill_in "page_url_key", with: "test-it"
+
+    expect(page).to have_text("test-it")
+  end
 end
