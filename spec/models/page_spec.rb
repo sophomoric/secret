@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Page, :type => :model do
+  it { is_expected.to validate_presence_of(:url_key) }
+
   describe "url_key inclusion validation" do
     it "does not allow the same url key if both were unseen" do
       create(:page, url_key: "example", seen: false)
