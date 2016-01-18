@@ -42,6 +42,17 @@ feature "Visit Secret Page", js: true do
     expect(current_path).to eq("/")
   end
 
+  scenario "page vanishes" do
+    secret_page = create(:page, message: "Hi", duration: 2)
+
+    visit_and_authenticate_for(secret_page)
+
+    expect(page).to have_text("Hi")
+    sleep 2
+
+    expect(page).to_not have_text("Hi")
+  end
+
   def current_path
     URI.parse(current_url).path
   end

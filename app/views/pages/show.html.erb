@@ -1,4 +1,7 @@
 <div class="secret-message">
   <%= MarkdownHelper.new(@page.message).render %>
 </div>
+<script>
+  window.duration = <%= @page.duration * 1000 %>;
+</script>
 <%= javascript_include_tag "clear_location" %>

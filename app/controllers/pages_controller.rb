@@ -14,6 +14,6 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:password, :message, :url_key)
+    params.require(:page).permit(:password, :message, :duration, :url_key)
   end
 end

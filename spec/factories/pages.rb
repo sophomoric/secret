@@ -3,5 +3,6 @@ FactoryGirl.define do
     url_key "obscure"
     message "Defeat Rebulba"
     password "Password"
+    duration 3
   end
 end

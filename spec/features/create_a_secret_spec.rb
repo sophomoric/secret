@@ -5,6 +5,7 @@ feature "Visitor Creates a Secret" do
     visit new_page_path
     fill_in "Url", with: "example"
     fill_in "Message", with: "Stop Rebulba!"
+    fill_in "Duration", with: 3
     fill_in "Password", with: "Password"
     click_button "Create"
 
