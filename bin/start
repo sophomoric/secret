@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+open -a postgres
+bundle exec rails s
