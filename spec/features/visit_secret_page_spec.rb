@@ -1,6 +1,14 @@
 require "rails_helper"
 
 feature "Visit Secret Page", js: true do
+  scenario "no password required" do
+    secret_page = create(:page, password: nil, require_password: false)
+
+    visit "/#{secret_page.url_key}"
+
+    expect(page).to have_content(secret_page.message)
+  end
+
   scenario "authenticate with password" do
     secret_page = create(:page, seen: false)
     visit "/#{secret_page.url_key}"
@@ -39,7 +47,7 @@ feature "Visit Secret Page", js: true do
     visit_and_authenticate_for(secret_page)
 
     expect(page).to have_link("google")
-    expect(current_path).to eq("/")
+    expect(current_path).to match(secret_page.url_key)
   end
 
   scenario "page vanishes" do

@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require preview
 //= require url_key
+//= require toggle_password

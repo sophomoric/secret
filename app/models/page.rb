@@ -1,5 +1,7 @@
 class Page < ActiveRecord::Base
-  has_secure_password validations: true
+  has_secure_password validations: false
+
+  validates :password_digest, presence: true, if: :require_password?
   validates :url_key, presence: true
   validates_uniqueness_of :url_key, conditions: -> { where(seen: false) }
   validates(

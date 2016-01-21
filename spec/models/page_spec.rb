@@ -3,6 +3,21 @@ require 'rails_helper'
 RSpec.describe Page, :type => :model do
   it { is_expected.to validate_presence_of(:url_key) }
 
+  describe "password validation" do
+    it "validates password presence" do
+      page = build(:page, password: nil, require_password: true)
+
+      expect(page).not_to be_valid
+      expect(page.errors[:password_digest]).to be_present
+    end
+
+    it "does not validate password if a password is not required" do
+      page = build(:page, password: nil, require_password: false)
+
+      expect(page).to be_valid
+    end
+  end
+
   describe "url_key inclusion validation" do
     it "does not allow the same url key if both were unseen" do
       create(:page, url_key: "example", seen: false)

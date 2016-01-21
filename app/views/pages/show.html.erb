@@ -2,6 +2,6 @@
   <%= MarkdownHelper.new(@page.message).render %>
 </div>
 <script>
-  window.duration = <%= @page.duration * 1000 %>;
+  window.page = <%= { url_key: @page.url_key, duration: (@page.duration * 1000) }.to_json.html_safe %>;
 </script>
 <%= javascript_include_tag "clear_location" %>

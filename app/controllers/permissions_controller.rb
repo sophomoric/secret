@@ -4,6 +4,10 @@ class PermissionsController < ApplicationController
 
     if @page.blank?
       raise ActionController::RoutingError.new("Not Found")
+    elsif @page.require_password?
+      render "new"
+    else
+      reveal(@page)
     end
   end
 
@@ -11,8 +15,7 @@ class PermissionsController < ApplicationController
     @page = Page.where(seen: false, url_key: url_key).first
     permission = Permission.new(@page)
     if permission.grant_for?(page_password)
-      @page.update!(seen: true)
-      render "pages/show"
+      reveal(@page)
     else
       redirect_to :back
     end
@@ -26,6 +29,11 @@ class PermissionsController < ApplicationController
 
   def page_password
     permission_params[:password]
+  end
+
+  def reveal(page)
+    page.update!(seen: true)
+    render "pages/show"
   end
 
   def url_key

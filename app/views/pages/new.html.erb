@@ -12,6 +12,7 @@
     <p>your secret message preview here...</p>
   </div>
   <%= f.input :duration, input_html: { value: 3, max: 10, min: 1 } %>
+  <%= f.input :require_password %>
   <%= f.input :password %>
   <%= f.button :submit %>
 <% end %>
