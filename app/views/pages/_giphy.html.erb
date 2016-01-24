@@ -1,13 +1,6 @@
 <div id="giphy-page">
   <div class="row">
-    <div class="input-wrapper empty">
-      <input type="text" class="query" placeholder="Search GIFs..." />
-      <div class="loader"></div>
-      <div class="clear"></div>
-    </div>
-
     <button class="use">Add</button>
-    <button class="random">Search</button>
   </div>
 
   <div class="result">
@@ -15,3 +8,8 @@
     </p>
   </div>
 <div>
+
+<%= simple_form_for :gif_search, url: "/gif_searches", remote: true do |f| %>
+  <%= f.input :phrase %>
+  <%= f.submit "Search" %>
+<% end %>

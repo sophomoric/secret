@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "/:url_key" => "permissions#new"
   resources :permissions, only: [:create]
   resources :previews, only: [:create]
+
+  resources :gif_searches, only: [:create]
 end
