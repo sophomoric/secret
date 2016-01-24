@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 
 require "rspec/rails"
+require "spec_helper"
 require "shoulda/matchers"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |file| require file }
@@ -21,3 +22,4 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.javascript_driver = :webkit
+Capybara::Webkit.configure(&:skip_image_loading)

@@ -10,6 +10,9 @@ gem "coffee-rails", "~> 4.1.0"
 gem "delayed_job_active_record"
 gem "email_validator"
 gem "flutie"
+
+gem "giphy"
+
 gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
@@ -51,6 +54,7 @@ group :test do
   gem "shoulda-matchers", require: false
   gem "simplecov", require: false
   gem "timecop"
+  gem "webmock"
 end
 
 group :staging, :production do
