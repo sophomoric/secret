@@ -1,4 +1,4 @@
-<h1>Create a secret Message</h1>
+<h1>Create a secret message</h1>
 
 <%= render partial: "giphy" %>
 
@@ -7,15 +7,20 @@
   <div class="preview-box">
     <p>your secret message preview here...</p>
   </div>
-  <%= f.input :duration, input_html: { value: 3, max: 10, min: 1 } %>
-  <%= f.input(
-    :url_key,
-    as: :string,
-    placeholder: "url-key-example",
-    label: "Your Message's Url: #{root_url}url-key-example"
-  ) %>
-  <%= f.input :require_password %>
-  <%= f.input :password %>
+
+  <div class="optional-fields hidden">
+    <%= f.input :duration, input_html: { value: 3, max: 10, min: 1 } %>
+    <%= f.input(
+      :url_key,
+      as: :string,
+      placeholder: "url-key-example",
+      label: "Specify url: #{root_url + @page.url_key}"
+    ) %>
+    <%= f.input :require_password %>
+    <%= f.input :password %>
+  </div>
+
   <%= f.button :submit %>
+  <button id="more-options">More Options</button>
 <% end %>
 

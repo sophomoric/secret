@@ -4,8 +4,9 @@ $(function(){
   var previewPlaceholder = $previewLabel.text();
 
   $input.keyup(function(){
-    var labelText = previewPlaceholder.split("url-key-example")[0];
-    var newText = labelText + $input.val();
+    var split = previewPlaceholder.split("/")
+    var oldText = split.slice(0, split.length - 1);
+    var newText = oldText.join("/") + "/" + $input.val();
     $previewLabel.text(newText);
   })
 });
