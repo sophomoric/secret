@@ -65,6 +65,9 @@ $(function(){
         $randomButton.removeClass('active');
       }
       $loader.addClass('done');
+      currentTimeout = setTimeout(function () {
+        $('.no-results').toggleClass('hidden');
+      }, 1000);
     });
   });
 
@@ -90,6 +93,9 @@ $(function(){
             $randomButton.removeClass('active');
           }
           $loader.addClass('done');
+          currentTimeout = setTimeout(function () {
+            $('.no-results').toggleClass('hidden');
+          }, 1000);
         });
       } else {
         $inputWrapper.removeClass('active').addClass('empty');
