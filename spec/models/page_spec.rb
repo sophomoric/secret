@@ -7,7 +7,7 @@ RSpec.describe Page, :type => :model do
     it "has a random 20 character string if no value is specified" do
       page = build(:page)
 
-      expect(page.url_key.length).to eq(20)
+      expect(page.url_key.length).to eq(10)
     end
   end
 

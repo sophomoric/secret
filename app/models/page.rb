@@ -15,6 +15,6 @@ class Page < ActiveRecord::Base
   private
 
   def set_random_url_key
-    self.url_key = SecureRandom.hex(10) unless self.url_key.present?
+    self.url_key = SecureRandom.hex(5) unless self.url_key.present?
   end
 end
