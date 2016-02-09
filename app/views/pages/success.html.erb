@@ -1,7 +1,10 @@
-<p>
-  Your secret page is available at
+<p>Your secret page is available at:</p>
+<p><b><%= root_url + @page.url_key %></b></p>
+<p>Copy, paste and send to a friend</p>
+
+<p>To view and destroy your own page click
   <%= link_to(
-    root_url + @page.url_key,
+    "here",
     root_url + @page.url_key
   ) %>
 </p>
