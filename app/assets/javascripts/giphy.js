@@ -8,7 +8,12 @@ $(function(){
   var $useThisButton = $(".use");
 
   $(".gif_search").on("ajax:success", function(e, data){
+    if (!data.length) {
+      $resultBox.html("<p>No Results</p>");
+      return ;
+    }
     $resultBox.css("height", 200);
+    reset();
     window.Secret.data = data;
     showNextImage();
   });
@@ -30,7 +35,7 @@ $(function(){
       incrementCounter(1);
     }
     insertResults(buildImg(currentImg()));
-    window.setTimeout(showNextImage, 5000);
+    window.Secret.timeoutID = window.setTimeout(showNextImage, 5000);
   }
 
  function addCurrentImg(e) {
@@ -46,6 +51,11 @@ $(function(){
  }
 
   // helpers
+
+  function reset() {
+    window.clearTimeout(window.Secret.timeoutID);
+    window.Secret = {};
+  }
 
   function resetCounter(index) {
     window.Secret.currentI = index;
