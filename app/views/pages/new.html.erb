@@ -1,9 +1,9 @@
-<h1>Create a one time note</h1>
+<h1>Create a onetime note</h1>
 
 <%= render partial: "giphy" %>
 
 <%= simple_form_for(@page) do |f| %>
-  <%= f.input :message, placeholder: "your secret note here..." %>
+  <%= f.input :message, label: false, placeholder: "your secret note here..." %>
   <div class="preview-box">
     <p>your secret note preview here...</p>
   </div>

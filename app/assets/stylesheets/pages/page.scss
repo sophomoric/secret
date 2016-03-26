@@ -12,6 +12,12 @@
     display: none;
   }
 
+  .preview-box {
+    border: 1px dashed $black;
+    margin-top: 5px;
+    padding: 10px;
+  }
+
   #more-options {
     float: right;
   }

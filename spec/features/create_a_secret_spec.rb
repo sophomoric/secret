@@ -3,9 +3,9 @@ require "rails_helper"
 feature "Visitor Creates a Secret" do
   scenario "no password" do
     visit new_page_path
-    fill_in "url", with: "example"
-    fill_in "Message", with: "Stop Rebulba!"
-    fill_in "Duration", with: 3
+    fill_in "page_url_key", with: "example"
+    fill_in "page_message", with: "Stop Rebulba!"
+    fill_in "page_duration", with: 3
     uncheck "Require password"
 
     click_button "Create"
@@ -16,10 +16,10 @@ feature "Visitor Creates a Secret" do
 
   scenario "custom url key" do
     visit new_page_path
-    fill_in "url", with: "example"
-    fill_in "Message", with: "Stop Rebulba!"
-    fill_in "Duration", with: 3
-    fill_in "Password", with: "Password"
+    fill_in "page_url_key", with: "example"
+    fill_in "page_message", with: "Stop Rebulba!"
+    fill_in "page_duration", with: 3
+    fill_in "page_password", with: "Password"
 
     click_button "Create"
 

@@ -7,7 +7,7 @@
 <div>
 
 <%= simple_form_for :gif_search, url: "/gif_searches", remote: true do |f| %>
-  <%= f.input :phrase %>
+  <%= f.input :phrase, label: false, input_html: { placeholder: "Search Gif..." } %>
   <button class="use">Add</button>
   <%= f.submit "Search", class: "search" %>
 <% end %>
