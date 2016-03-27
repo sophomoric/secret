@@ -1,4 +1,15 @@
 #giphy-page {
+  .giphy-search {
+    position: relative;
+
+    img {
+      height: 90%;
+      position: absolute;
+      right: 1%;
+      top: 5%;
+    }
+  }
+
   .search {
     float: right;
   }
