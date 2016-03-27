@@ -8,64 +8,58 @@ $(function(){
   var $useThisButton = $(".use");
 
   $(".gif_search").on("ajax:success", function(e, data){
-    if (!data.length) {
-      $resultBox.html("<p>No Results</p>");
-      return ;
-    }
-    $resultBox.css("height", 200);
     reset();
     window.Secret.data = data;
-    showNextImage();
+    if (!data.length) {
+      $resultBox.css("height", "auto");
+      $resultBox.html("<p>No Results</p>");
+    } else {
+      $resultBox.css("height", 200);
+      startInterval();
+    }
   });
 
   $useThisButton.click(addCurrentImg);
 
-  function currentImg() {
-    if (window.Secret.data) {
-      return window.Secret.data[window.Secret.currentI];
-    } else {
-      return "";
-    }
-  }
-
-  function showNextImage() {
-    if (shouldResetCounter() || notInitialized() || lessThanTwoImages()) {
-      resetCounter(0);
-    } else {
-      incrementCounter(1);
-    }
-    insertResults(buildImg(currentImg()));
-    window.Secret.timeoutID = window.setTimeout(showNextImage, 5000);
+  function startInterval() {
+    insertCurrentImg();
+    window.Secret.intervalId = window.
+      setInterval(insertCurrentImgAndIncrement, 5000);
   }
 
  function addCurrentImg(e) {
     e.preventDefault();
-    var url = currentImg();
-
-    if (!url) { return ; }
-
-    var image = buildImg(url);
+    var image = currentImg();
     var newValue = $message.val() + image;
     $message.val(newValue);
     $message.trigger("keyup");
  }
 
-  // helpers
+ // helpers
+
+ function incrementCounter(num) {
+   window.Secret.currentI = window.Secret.currentI + num;
+ }
 
   function reset() {
-    window.clearTimeout(window.Secret.timeoutID);
+    window.clearInterval(window.Secret.intervalId);
     window.Secret = {};
+    window.Secret.currentI = 0;
   }
 
   function resetCounter(index) {
     window.Secret.currentI = index;
   }
 
-  function incrementCounter(increment) {
-    window.Secret.currentI = window.Secret.currentI + increment;
+  function counterStep() {
+    if (endOfArray() || notInitialized() || lessThanTwoImages()) {
+      resetCounter(0);
+    } else {
+      incrementCounter(1);
+    }
   }
 
-  function shouldResetCounter() {
+  function endOfArray() {
     return window.Secret.currentI === window.Secret.data.length;
   }
 
@@ -77,9 +71,24 @@ $(function(){
     return window.Secret.currentI === undefined;
   }
 
-  function insertResults(result) {
-    $resultBox.html(result);
+  function insertCurrentImgAndIncrement() {
+    insertCurrentImg();
+    counterStep();
   }
+
+  function insertCurrentImg() {
+    $resultBox.html(buildImg(currentImg()));
+  }
+
+  function currentImg() {
+    if (window.Secret.data.length) {
+      return window.Secret.data[window.Secret.currentI];
+    } else {
+      return "";
+    }
+  }
+
+  // pure functions
 
   function buildImg(url) {
     return "<img src='" + url + "'>";
