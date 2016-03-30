@@ -29,8 +29,8 @@ $(function(){
 
  function addCurrentImg(e) {
     e.preventDefault();
-    var image = currentImg();
-    var newValue = $message.val() + image;
+    var imageUrl = currentImg();
+    var newValue = $message.val() + buildImgTag(imageUrl);
     $message.val(newValue);
     $message.trigger("keyup");
  }
@@ -77,7 +77,7 @@ $(function(){
   }
 
   function insertCurrentImg() {
-    $resultBox.html(buildImg(currentImg()));
+    $resultBox.html(buildImgTag(currentImg()));
   }
 
   function currentImg() {
@@ -90,7 +90,7 @@ $(function(){
 
   // pure functions
 
-  function buildImg(url) {
+  function buildImgTag(url) {
     return "<img src='" + url + "'>";
   }
 });
