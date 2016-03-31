@@ -6,6 +6,8 @@ $(function(){
   var $resultBox = $(".result");
   var $message = $("#page_message");
   var $useThisButton = $(".use");
+  var $stepButton = $(".step");
+  var $navigation = $(".navigation");
 
   $(".gif_search").on("ajax:success", function(e, data){
     reset();
@@ -13,10 +15,18 @@ $(function(){
     if (!data.length) {
       $resultBox.css("height", "auto");
       $resultBox.html("<p>No Results</p>");
+      $navigation.hide();
     } else {
       $resultBox.css("height", 200);
+      $navigation.show();
       startInterval();
     }
+  });
+
+  $stepButton.click(function(e){
+    var increment = parseInt($(e.target).attr("data-value"));
+    counterStep(increment);
+    insertCurrentImg();
   });
 
   $useThisButton.click(addCurrentImg);
@@ -41,7 +51,7 @@ $(function(){
    window.Secret.currentI = window.Secret.currentI + num;
  }
 
-  function reset() {
+  window.reset = function reset() {
     window.clearInterval(window.Secret.intervalId);
     window.Secret = {};
     window.Secret.currentI = 0;
@@ -51,11 +61,11 @@ $(function(){
     window.Secret.currentI = index;
   }
 
-  function counterStep() {
+  function counterStep(increment) {
     if (endOfArray() || notInitialized() || lessThanTwoImages()) {
       resetCounter(0);
     } else {
-      incrementCounter(1);
+      incrementCounter(increment);
     }
   }
 
@@ -73,7 +83,7 @@ $(function(){
 
   function insertCurrentImgAndIncrement() {
     insertCurrentImg();
-    counterStep();
+    counterStep(1);
   }
 
   function insertCurrentImg() {

@@ -1,8 +1,13 @@
 #giphy-page {
+  .navigation {
+    display: none;
+    font-size: 40px;
+  }
+
   .giphy-search {
     position: relative;
 
-    img {
+    .logo {
       height: 90%;
       position: absolute;
       right: 1%;
@@ -10,11 +15,13 @@
     }
   }
 
-  .search {
-    float: right;
+  .step {
+    &:hover {
+      background: $light-gray;
+    }
   }
 
-  .result {
-    margin: 10px 0;
+  .search {
+    float: right;
   }
 }
