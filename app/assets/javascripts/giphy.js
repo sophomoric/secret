@@ -24,6 +24,7 @@ $(function(){
   });
 
   $stepButton.click(function(e){
+    clearRunningInterval();
     var increment = parseInt($(e.target).attr("data-value"));
     counterStep(increment);
     insertCurrentImg();
@@ -47,12 +48,16 @@ $(function(){
 
  // helpers
 
+ function clearRunningInterval() {
+   window.clearInterval(window.Secret.intervalId);
+ }
+
  function incrementCounter(num) {
    window.Secret.currentI = window.Secret.currentI + num;
  }
 
   window.reset = function reset() {
-    window.clearInterval(window.Secret.intervalId);
+    clearRunningInterval();
     window.Secret = {};
     window.Secret.currentI = 0;
   }
@@ -62,19 +67,25 @@ $(function(){
   }
 
   function counterStep(increment) {
-    if (endOfArray() || notInitialized() || lessThanTwoImages()) {
+    if ((endOfArray() && increment > 0) || notInitialized()) {
       resetCounter(0);
+    } else if (startOfArray() && increment < 0) {
+      resetCounter(arrayLength() - 1);
     } else {
       incrementCounter(increment);
     }
   }
 
-  function endOfArray() {
-    return window.Secret.currentI === window.Secret.data.length;
+  function arrayLength() {
+    return window.Secret.data.length;
   }
 
-  function lessThanTwoImages() {
-    return window.Secret.data.length < 2;
+  function endOfArray() {
+    return window.Secret.currentI >= arrayLength() -1;
+  }
+
+  function startOfArray() {
+    return window.Secret.currentI < 1;
   }
 
   function notInitialized() {
