@@ -8,8 +8,16 @@ $(function(){
   var $useThisButton = $(".use");
   var $stepButton = $(".step");
   var $navigation = $(".navigation");
+  var $gifSearchInput = $("#gif_search_phrase");
+  var $gifSearchForm = $(".gif_search");
 
-  $(".gif_search").on("ajax:success", function(e, data){
+  $gifSearchInput.keypress(function(e) {
+    if (e.which == 13) {
+      $gifSearchForm.trigger("submit");
+    }
+  });
+
+  $gifSearchForm.on("ajax:success", function(e, data){
     reset();
     window.Secret.data = data;
     if (!data.length) {
@@ -44,6 +52,9 @@ $(function(){
     var newValue = $message.val() + buildImgTag(imageUrl);
     $message.val(newValue);
     $message.trigger("keyup");
+    $("html, body").animate({
+      scrollTop: $message.offset().top
+    }, 1000);
  }
 
  // helpers
@@ -56,10 +67,10 @@ $(function(){
    window.Secret.currentI = window.Secret.currentI + num;
  }
 
-  window.reset = function reset() {
-    clearRunningInterval();
-    window.Secret = {};
-    window.Secret.currentI = 0;
+ function reset() {
+   clearRunningInterval();
+   window.Secret = {};
+   window.Secret.currentI = 0;
   }
 
   function resetCounter(index) {
