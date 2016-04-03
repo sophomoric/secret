@@ -1,7 +1,11 @@
 #giphy-page {
   .navigation {
     display: none;
-    font-size: 40px;
+
+    button {
+      margin-right: 2%;
+      width: 22%;
+    }
   }
 
   .giphy-search {
@@ -13,15 +17,5 @@
       right: 1%;
       top: 5%;
     }
-  }
-
-  .step {
-    &:hover {
-      background: $light-gray;
-    }
-  }
-
-  .search {
-    float: right;
   }
 }

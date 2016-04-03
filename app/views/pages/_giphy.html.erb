@@ -3,8 +3,9 @@
   </div>
   <div>
     <div class="navigation">
-      <a class="step back" data-value=-1>&lt;</a>
-      <a class="step next" data-value=1>&gt;</a>
+      <button class="use">Use</button>
+      <button class="step back" data-value=-1>Back</button>
+      <button class="step next" data-value=1>Next</button>
     </div>
   </div>
 
@@ -13,7 +14,6 @@
       <%= f.input :phrase, label: false, input_html: { placeholder: "Search Gif..." } %>
       <%= image_tag("powered_by_giphy.png", class: "logo") %>
     </div>
-    <button class="use">Add</button>
     <%= f.submit "Search", class: "search" %>
   <% end %>
 <div>
