@@ -4,18 +4,9 @@ $(function(){
   window.Secret = window.Secret || {};
 
   var $resultBox = $(".result");
-  var $message = $("#page_message");
-  var $useThisButton = $(".use");
   var $stepButton = $(".step");
   var $navigation = $(".navigation");
-  var $gifSearchInput = $("#gif_search_phrase");
   var $gifSearchForm = $(".gif_search");
-
-  $gifSearchInput.keypress(function(e) {
-    if (e.which == 13) {
-      $gifSearchForm.trigger("submit");
-    }
-  });
 
   $gifSearchForm.on("ajax:success", function(e, data){
     reset();
@@ -38,24 +29,11 @@ $(function(){
     insertCurrentImg();
   });
 
-  $useThisButton.click(addCurrentImg);
-
   function startInterval() {
     insertCurrentImg();
     window.Secret.intervalId = window.
       setInterval(insertCurrentImgAndIncrement, 5000);
   }
-
- function addCurrentImg(e) {
-    e.preventDefault();
-    var imageUrl = currentImg();
-    var newValue = $message.val() + buildImgTag(imageUrl);
-    $message.val(newValue);
-    $message.trigger("keyup");
-    $("html, body").animate({
-      scrollTop: $message.offset().top
-    }, 1000);
- }
 
  // helpers
 
@@ -112,6 +90,8 @@ $(function(){
     $resultBox.html(buildImgTag(currentImg()));
   }
 
+  // global functions
+
   function currentImg() {
     if (window.Secret.data.length) {
       return window.Secret.data[window.Secret.currentI];
@@ -120,9 +100,11 @@ $(function(){
     }
   }
 
-  // pure functions
-
   function buildImgTag(url) {
     return "<img src='" + url + "'>";
   }
+
+  window.Functions = {};
+  window.Functions.currentImg = currentImg;
+  window.Functions.buildImgTag = buildImgTag;
 });

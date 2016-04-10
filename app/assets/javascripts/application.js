@@ -17,3 +17,5 @@
 //= require toggle_password
 //= require toggle_options
 //= require giphy
+//= require search_input
+//= require use_this
