@@ -18,4 +18,4 @@
 //= require toggle_options
 //= require giphy
 //= require search_input
-//= require use_this
+//= require image_adder
