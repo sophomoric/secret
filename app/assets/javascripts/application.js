@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.autosize
+//= require textarea
 //= require preview
 //= require url_key
 //= require toggle_password
