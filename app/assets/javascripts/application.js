@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.autosize
+//= require photoswipe
+//= require photoswipe_init
 //= require textarea
 //= require preview
 //= require url_key
