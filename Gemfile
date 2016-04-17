@@ -31,6 +31,7 @@ gem "simple_form"
 gem "title"
 gem "uglifier", ">= 2.7.2"
 gem "unicorn"
+gem "whenever", require: false
 
 group :development do
   gem "spring"
