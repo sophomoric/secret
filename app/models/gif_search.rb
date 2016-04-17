@@ -7,7 +7,7 @@ class GifSearch
   def results
     response = Giphy.search(phrase, options)
     response.map do |giphy_gif|
-      giphy_gif.fixed_height_image.url.to_s
+      extract_uri(giphy_gif).to_s
     end
   end
 
@@ -17,5 +17,11 @@ class GifSearch
 
   def defaults
     { limit: 25, offset: 0 }
+  end
+
+  def extract_uri(giphy_gif)
+    giphy_gif.fixed_height_image.url.tap do |uri|
+      uri.scheme = nil
+    end
   end
 end

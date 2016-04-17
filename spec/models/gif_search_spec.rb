@@ -11,5 +11,16 @@ describe GifSearch do
 
       expect(search.results.class).to eq(Array)
     end
+
+    it "should return the url without the scheme" do
+      stub_gif_search_results(
+        "http://media2.giphy.com/media/Qw4X3Fr40xHU6E02khy/200.gif"
+      )
+
+      search = GifSearch.new("dog")
+
+      expect(search.results.first).
+        to eq("//media2.giphy.com/media/Qw4X3Fr40xHU6E02khy/200.gif")
+    end
   end
 end
