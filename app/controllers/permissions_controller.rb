@@ -1,10 +1,8 @@
 class PermissionsController < ApplicationController
   def new
-    @page = Page.where(seen: false, url_key: params[:url_key]).first
+    @page = Page.find_by!(url_key: params[:url_key])
 
-    if @page.blank?
-      raise ActionController::RoutingError.new("Not Found")
-    elsif @page.require_password?
+    if @page.require_password?
       render "new"
     else
       reveal(@page)
@@ -12,7 +10,7 @@ class PermissionsController < ApplicationController
   end
 
   def create
-    @page = Page.where(seen: false, url_key: url_key).first
+    @page = Page.find_by(url_key: url_key)
     permission = Permission.new(@page)
     if permission.grant_for?(page_password)
       reveal(@page)
@@ -32,7 +30,7 @@ class PermissionsController < ApplicationController
   end
 
   def reveal(page)
-    page.update!(seen: true)
+    page.destroy!
     render "pages/show"
   end
 

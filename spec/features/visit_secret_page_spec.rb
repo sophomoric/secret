@@ -10,7 +10,7 @@ feature "Visit Secret Page", js: true do
   end
 
   scenario "authenticate with password" do
-    secret_page = create(:page, seen: false)
+    secret_page = create(:page)
     visit "/#{secret_page.url_key}"
     fill_in "Password", with: secret_page.password
     click_button "Submit"
@@ -19,7 +19,7 @@ feature "Visit Secret Page", js: true do
   end
 
   scenario "wrong password" do
-    secret_page = create(:page, seen: false)
+    secret_page = create(:page)
     visit "/#{secret_page.url_key}"
     fill_in "Password", with: "Not the password"
     click_button "Submit"
@@ -29,14 +29,14 @@ feature "Visit Secret Page", js: true do
   end
 
   scenario "visiting page again should not show message" do
-    secret_page = create(:page, seen: false)
+    secret_page = create(:page)
     visit_and_authenticate_for(secret_page)
 
     expect(page).to have_content(secret_page.message)
 
     expect do
       visit_and_authenticate_for(secret_page)
-    end.to raise_error(ActionController::RoutingError)
+    end.to raise_error(ActiveRecord::RecordNotFound)
   end
 
   scenario "creator used markdown" do
@@ -50,15 +50,15 @@ feature "Visit Secret Page", js: true do
     expect(current_path).to match(secret_page.url_key)
   end
 
-  scenario "page vanishes" do
+  scenario "page vanishes and is deleted" do
     secret_page = create(:page, message: "Hi", duration: 2)
 
     visit_and_authenticate_for(secret_page)
 
     expect(page).to have_text("Hi")
-    sleep 2
 
     expect(page).to_not have_text("Hi")
+    expect(Page.exists?(id: secret_page.id)).to eq(false)
   end
 
   def current_path

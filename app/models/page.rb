@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   validates :password_digest, presence: true, if: :require_password?
   validates :url_key, presence: true
   validates :message, presence: true
-  validates_uniqueness_of :url_key, conditions: -> { where(seen: false) }
+  validates_uniqueness_of :url_key
   validates(
     :duration,
     inclusion: { in: (1..10), message: "Must be between 1 and 10 seconds" }
