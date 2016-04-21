@@ -1,6 +1,8 @@
 require "redcarpet"
 
 class MarkdownHelper
+  include ActionView::Helpers::SanitizeHelper
+
   OPTIONS = {
     hard_wrap: true,
     autolink: true
@@ -12,6 +14,12 @@ class MarkdownHelper
 
   def render
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, OPTIONS)
-    markdown.render(@text).html_safe
+    markdown.render(sanitized_text).html_safe
+  end
+
+  private
+
+  def sanitized_text
+    sanitize(@text, tags: %w(a img h1 p br))
   end
 end

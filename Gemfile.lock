@@ -225,7 +225,7 @@ GEM
     rake (11.1.0)
     recipient_interceptor (0.1.2)
       mail
-    redcarpet (3.3.2)
+    redcarpet (3.3.4)
     refills (0.1.0)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
