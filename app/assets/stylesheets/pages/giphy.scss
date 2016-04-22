@@ -1,14 +1,15 @@
 #giphy-page {
+  @include span-columns(12);
+
   .navigation {
+    @include outer-container;
     display: none;
 
     button {
-      margin-left: 3%;
-      width: 30%;
+      @include span-columns(4);
     }
 
     .use {
-      margin: 0;
     }
   }
 

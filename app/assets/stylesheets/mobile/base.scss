@@ -1,7 +1,0 @@
-$mobile: new-breakpoint(max-width 480px);
-
-body {
-  @include media($mobile) {
-    width: 90%;
-  }
-}

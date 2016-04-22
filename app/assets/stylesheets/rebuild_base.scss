@@ -1,4 +1,9 @@
 body {
-  width: 50%;
-  margin: auto;
+  @include outer-container;
+  width: 90%;
+
+  @media screen and (min-width: 768px) {
+    @include span-columns(6);
+    @include shift(3);
+  }
 }
