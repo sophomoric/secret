@@ -1,9 +1,13 @@
+require "browser"
+
 class PermissionsController < ApplicationController
   def new
     @page = Page.find_by!(url_key: params[:url_key])
 
     if @page.require_password?
       render "new"
+    elsif bot?
+      render "pages/bot"
     else
       reveal(@page)
     end
@@ -20,6 +24,10 @@ class PermissionsController < ApplicationController
   end
 
   private
+
+  def bot?
+    browser.bot?
+  end
 
   def permission_params
     params.require(:permission).permit(:password, :url_key)
