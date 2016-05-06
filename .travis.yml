@@ -7,6 +7,9 @@ branches:
     - master
 services:
   - postgresql
+install:
+  - sudo apt-get update
+  - sudo apt-get install libqt4-dev qt4-qmake
 before_script:
   - export DISPLAY=:99
   - sh -e /etc/init.d/xvfb start
