@@ -23,7 +23,7 @@ gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
 gem "rack-canonical-host"
-gem "rails"
+gem "rails", "~> 4.2.3"
 gem "recipient_interceptor"
 gem "redcarpet"
 gem "refills"
@@ -50,8 +50,8 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit"
-  gem "database_cleaner"
+  gem "capybara-webkit", "~> 1.6.0"
+  gem "database_cleaner", "~> 1.4.1"
   gem "formulaic"
   gem "launchy"
   gem "shoulda-matchers", require: false
