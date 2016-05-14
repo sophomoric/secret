@@ -23,4 +23,8 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.javascript_driver = :webkit
-Capybara::Webkit.configure(&:skip_image_loading)
+Capybara.always_include_port = true
+Capybara::Webkit.configure do |c|
+  c.skip_image_loading = true
+  c.debug = true
+end
