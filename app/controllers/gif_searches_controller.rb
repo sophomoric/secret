@@ -7,6 +7,6 @@ class GifSearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:gif_search).permit(:phrase)
+    params.require(:gif_search).permit(:phrase, :offset)
   end
 end

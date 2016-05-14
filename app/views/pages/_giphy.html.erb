@@ -6,12 +6,14 @@
       <button class="use">Use</button>
       <button class="step back" data-value=-1>Back</button>
       <button class="step next" data-value=1>Next</button>
+      <button class="more" data-value=25>Next 25</button>
     </div>
   </div>
 
   <%= simple_form_for :gif_search, url: "/gif_searches", remote: true do |f| %>
     <div class="giphy-search">
       <%= f.input :phrase, label: false, input_html: { placeholder: "Search Gif..." } %>
+      <%= f.input :offset, label: false, input_html: { value: "0" } %>
       <%= image_tag("powered_by_giphy.png", class: "logo") %>
     </div>
     <%= f.submit "Search", class: "search" %>

@@ -6,6 +6,7 @@ $(function(){
   var $resultBox = $(".result");
   var $stepButton = $(".step");
   var $navigation = $(".navigation");
+  var $moreResults = $(".more-results")
   var $gifSearchForm = $(".gif_search");
 
   $gifSearchForm.on("ajax:success", function(e, data){
@@ -27,6 +28,14 @@ $(function(){
     var increment = parseInt($(e.target).attr("data-value"));
     counterStep(increment);
     insertCurrentImg();
+  });
+
+  $moreResults.click(function(e){
+    var $offsetField = $("#gif_search_offset");
+    var increment = parseInt($(e.target).attr("data-value"));
+    var previousOffset = $offsetField.val();
+    $offsetField.val(previousOffsert + 25);
+    $gifSearchForm.trigger("submit");
   });
 
   function startInterval() {
