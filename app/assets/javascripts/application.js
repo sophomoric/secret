@@ -18,6 +18,8 @@
 //= require url_key
 //= require toggle_password
 //= require toggle_options
+//= require navigator
+//= require search_result
 //= require giphy
 //= require search_input
 //= require image_adder

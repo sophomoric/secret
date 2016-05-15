@@ -9,8 +9,7 @@ $(function(){
   var $gifSearchForm = $(".gif_search");
 
   $gifSearchForm.on("ajax:success", function(e, data){
-    reset();
-    window.Secret.data = data;
+    var searchResult = new SearchResult(data);
     if (!data.length) {
       $resultBox.css("height", "auto");
       $resultBox.html("<p>No Results</p>");
