@@ -1,7 +1,7 @@
 class GifSearch
-  def initialize(phrase, options = {})
-    @phrase = phrase
-    @options = defaults.merge(options)
+  def initialize(search_params = {})
+    @phrase = search_params.delete :phrase
+    @options = defaults.merge(search_params)
   end
 
   def results

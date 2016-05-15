@@ -33,8 +33,8 @@ $(function(){
   $moreResults.click(function(e){
     var $offsetField = $("#gif_search_offset");
     var increment = parseInt($(e.target).attr("data-value"));
-    var previousOffset = $offsetField.val();
-    $offsetField.val(previousOffsert + 25);
+    var previousOffset = parseInt($offsetField.val());
+    $offsetField.val(previousOffset + 25);
     $gifSearchForm.trigger("submit");
   });
 
