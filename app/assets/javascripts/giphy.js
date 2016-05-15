@@ -18,35 +18,23 @@ $(function(){
     } else {
       $resultBox.css("height", 200);
       $navigation.show();
-      startInterval();
+      insertCurrentImg();
     }
   });
 
   $stepButton.click(function(e){
-    clearRunningInterval();
     var increment = parseInt($(e.target).attr("data-value"));
     counterStep(increment);
     insertCurrentImg();
   });
 
-  function startInterval() {
-    insertCurrentImg();
-    window.Secret.intervalId = window.
-      setInterval(insertCurrentImgAndIncrement, 5000);
-  }
-
  // helpers
-
- function clearRunningInterval() {
-   window.clearInterval(window.Secret.intervalId);
- }
 
  function incrementCounter(num) {
    window.Secret.currentI = window.Secret.currentI + num;
  }
 
  function reset() {
-   clearRunningInterval();
    window.Secret = {};
    window.Secret.currentI = 0;
   }
