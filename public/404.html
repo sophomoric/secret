@@ -47,8 +47,17 @@
     <div class="dialog">
     <div>
       <h1>The note you were looking for is not here</h1>
-      <p>Either it was already seen or it was never created</p>
+      <p>It has been destroyed. Or it never existed</p>
+      <p><a href="/">Home</a></p>
     </div>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      function returnHome(){
+        window.location.pathname = "";
+      }
+      window.setTimeout(returnHome, 5000);
+    });
+    </script>
 </body>
 </html>

@@ -56,8 +56,6 @@ feature "Visit Secret Page", js: true do
     visit_and_authenticate_for(secret_page)
 
     expect(page).to have_text("Hi")
-
-    expect(page).to_not have_text("Hi")
     expect(Page.exists?(id: secret_page.id)).to eq(false)
   end
 
