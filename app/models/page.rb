@@ -12,6 +12,9 @@ class Page < ActiveRecord::Base
 
   after_initialize :set_random_url_key
 
+  has_many :photos
+  accepts_nested_attributes_for :photos
+
   private
 
   def set_random_url_key

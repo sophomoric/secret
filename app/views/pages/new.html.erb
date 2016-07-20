@@ -2,7 +2,7 @@
 
 <%= render partial: "giphy" %>
 
-<%= simple_form_for(@page) do |f| %>
+<%= simple_form_for @page, html: {multipart: true} do |f| %>
   <%= f.input :message, label: false, placeholder: "your onetime note here..." %>
   <div class="preview-box">
     <p>your onetime note preview here...</p>
@@ -18,6 +18,9 @@
     ) %>
     <%= f.input :require_password %>
     <%= f.input :password %>
+    <%= f.simple_fields_for :photos do |photo_form| %>
+      <%= f.input :avatar, as: :file %>
+    <% end %>
   </div>
 
   <%= f.button :submit, "Create Note" %>

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def new
     @page = Page.new
+    @page.photos.build
   end
 
   def create
