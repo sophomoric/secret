@@ -20,7 +20,8 @@ class PagesController < ApplicationController
       :message,
       :password,
       :require_password,
-      :url_key
+      :url_key,
+      photos_attributes: [:avatar]
     )
   end
 end

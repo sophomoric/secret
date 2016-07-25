@@ -19,7 +19,7 @@
     <%= f.input :require_password %>
     <%= f.input :password %>
     <%= f.simple_fields_for :photos do |photo_form| %>
-      <%= f.input :avatar, as: :file %>
+      <%= photo_form.input :avatar, as: :file %>
     <% end %>
   </div>
 
@@ -27,3 +27,6 @@
   <button id="more-options">More Options</button>
 <% end %>
 
+<%= simple_form_for :photo, { remote: true } do |f| %>
+  <%= f.input :avatar, as: :file %>
+<% end %>
