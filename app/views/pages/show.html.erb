@@ -1,5 +1,5 @@
 <h1>Happy Birthday Paige!</h1>
-<%= image_tag("paige.jpg") %>
+<%= image_tag("paige_#{ rand(4) }.jpg") %>
 <p>and here is your message below:</p>
 <div class="secret-message">
   <%= MarkdownHelper.new(@page.message).render %>
