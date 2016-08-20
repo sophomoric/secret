@@ -41,6 +41,8 @@ GEM
       builder
       multi_json
     arel (6.0.3)
+    attr_encrypted (3.0.3)
+      encryptor (~> 3.0.0)
     autoprefixer-rails (5.2.1.1)
       execjs
       json
@@ -116,6 +118,7 @@ GEM
       thread_safe
     email_validator (1.6.0)
       activemodel
+    encryptor (3.0.0)
     erubis (2.7.0)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -320,6 +323,7 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  attr_encrypted
   autoprefixer-rails
   autosize-rails
   awesome_print

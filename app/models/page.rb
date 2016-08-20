@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+  attr_encrypted :message, key: ENV.fetch("SECRET_KEY_BASE")
   has_secure_password validations: false
 
   validates :password_digest, presence: true, if: :require_password?

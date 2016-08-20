@@ -4,6 +4,9 @@ ruby "2.2.2"
 
 gem "airbrake"
 gem "autoprefixer-rails"
+
+gem "attr_encrypted"
+
 gem "bourbon", "~> 4.2.0"
 gem "bcrypt"
 gem "browser"
