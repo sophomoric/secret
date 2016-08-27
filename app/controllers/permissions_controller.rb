@@ -17,6 +17,7 @@ class PermissionsController < ApplicationController
     @page = Page.find_by(url_key: url_key)
     permission = Permission.new(@page)
     if permission.grant_for?(page_password)
+      @page.password = page_password
       reveal(@page)
     else
       redirect_to :back

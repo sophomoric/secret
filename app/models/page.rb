@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-  attr_encrypted :message, key: ENV.fetch("SECRET_KEY_BASE")
+  attr_encrypted(:message, key: :encryption_key)
+
   has_secure_password validations: false
 
   validates :password_digest, presence: true, if: :require_password?
@@ -12,6 +13,16 @@ class Page < ActiveRecord::Base
   )
 
   after_initialize :set_random_url_key
+
+  def encryption_key
+    if require_password? && password
+      password + ENV.fetch("SECRET_KEY_BASE")
+    elsif password
+      self.require_password = true
+    else
+      ENV.fetch("SECRET_KEY_BASE")
+    end
+  end
 
   private
 
