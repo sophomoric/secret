@@ -11,19 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820162417) do
+ActiveRecord::Schema.define(version: 20160828133604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pages", force: :cascade do |t|
     t.string   "url_key"
-    t.text     "message",              default: "",    null: false
     t.string   "password_digest"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "duration"
-    t.boolean  "require_password",     default: false, null: false
     t.text     "encrypted_message"
     t.text     "encrypted_message_iv"
   end

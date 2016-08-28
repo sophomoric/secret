@@ -3,7 +3,12 @@
 <%= render partial: "giphy" %>
 
 <%= simple_form_for(@page) do |f| %>
-  <%= f.input :message, label: false, placeholder: "your onetime note here..." %>
+  <%= f.input(
+    :message,
+    label: false,
+    placeholder: "your onetime note here...",
+    as: :text
+  ) %>
   <div class="preview-box">
     <p>your onetime note preview here...</p>
   </div>
