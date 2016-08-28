@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Bot visits secret page", js: true do
   scenario "no password required" do
     stub_browser_as_bot(true)
-    secret_page = create(:page, password: nil, require_password: false)
+    secret_page = create(:page, password: nil)
 
     visit "/#{secret_page.url_key}"
 

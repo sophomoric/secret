@@ -3,7 +3,6 @@ class Page < ActiveRecord::Base
 
   has_secure_password validations: false
 
-  validates :password_digest, presence: true, if: :require_password?
   validates :url_key, presence: true
   validates :message, presence: true
   validates_uniqueness_of :url_key
@@ -15,10 +14,8 @@ class Page < ActiveRecord::Base
   after_initialize :set_random_url_key
 
   def encryption_key
-    if require_password? && password
+    if password
       password + ENV.fetch("SECRET_KEY_BASE")
-    elsif password
-      self.require_password = true
     else
       ENV.fetch("SECRET_KEY_BASE")
     end

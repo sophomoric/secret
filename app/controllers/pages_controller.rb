@@ -18,7 +18,6 @@ class PagesController < ApplicationController
       :duration,
       :message,
       :password,
-      :require_password,
       :url_key
     )
   end

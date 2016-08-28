@@ -12,21 +12,6 @@ RSpec.describe Page, :type => :model do
     end
   end
 
-  describe "password validation" do
-    it "validates password presence" do
-      page = build(:page, password: nil, require_password: true)
-
-      expect(page).not_to be_valid
-      expect(page.errors[:password_digest]).to be_present
-    end
-
-    it "does not validate password if a password is not required" do
-      page = build(:page, password: nil, require_password: false)
-
-      expect(page).to be_valid
-    end
-  end
-
   describe "duration" do
     it "cannot be outside the range of 1 and 10" do
       page = build(:page, duration: 11)

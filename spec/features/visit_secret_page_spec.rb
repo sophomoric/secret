@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Visit Secret Page", js: true do
   scenario "no password required" do
-    secret_page = create(:page, password: nil, require_password: false)
+    secret_page = create(:page, password: nil)
 
     visit "/#{secret_page.url_key}"
 

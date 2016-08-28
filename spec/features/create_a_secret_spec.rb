@@ -6,7 +6,6 @@ feature "Visitor Creates a Secret" do
     fill_in "page_url_key", with: "example"
     fill_in "page_message", with: "Stop Rebulba!"
     fill_in "page_duration", with: 3
-    uncheck "Require password"
 
     click_button "Create"
 
@@ -17,13 +16,11 @@ feature "Visitor Creates a Secret" do
     expect(Page.count).to eq(0)
   end
 
-  scenario "custom url key" do
+  scenario "custom url key and password" do
     visit new_page_path
     fill_in "page_url_key", with: "example"
     fill_in "page_message", with: "Stop Rebulba!"
     fill_in "page_duration", with: 3
-    find(:css, "#page_require_password").click
-    find(:css, "#page_require_password").set(true)
     fill_in "page_password", with: "Password"
 
     click_button "Create"

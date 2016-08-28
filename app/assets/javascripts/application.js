@@ -16,7 +16,6 @@
 //= require textarea
 //= require preview
 //= require url_key
-//= require toggle_password
 //= require toggle_options
 //= require giphy
 //= require search_input

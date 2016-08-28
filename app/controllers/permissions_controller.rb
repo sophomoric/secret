@@ -4,7 +4,7 @@ class PermissionsController < ApplicationController
   def new
     @page = Page.find_by!(url_key: params[:url_key])
 
-    if @page.require_password?
+    if @page.password_digest
       render "new"
     elsif bot?
       render "pages/bot"
