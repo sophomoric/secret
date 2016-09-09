@@ -14,6 +14,7 @@
   <%= favicon_link_tag 'dance.png' %>
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
+  <link rel="canonical" href="<%= root_url %>">
 </head>
 <body class="<%= body_class %>">
   <%= render "flashes" -%>
