@@ -38,6 +38,7 @@ gem "unicorn"
 gem "whenever", require: false
 
 group :development do
+  gem "thin"
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
