@@ -3,7 +3,6 @@ class Page < ActiveRecord::Base
 
   has_secure_password validations: false
 
-  validates :url_key, presence: true
   validates :message, presence: true
   validates_uniqueness_of :url_key
   validates(
@@ -11,7 +10,7 @@ class Page < ActiveRecord::Base
     inclusion: { in: (1..10), message: "Must be between 1 and 10 seconds" }
   )
 
-  after_initialize :set_random_url_key
+  before_save :set_random_url_key
 
   def encryption_key
     if password

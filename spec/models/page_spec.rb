@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Page, :type => :model do
-  it { is_expected.to validate_presence_of(:url_key) }
   it { is_expected.to validate_uniqueness_of(:url_key) }
 
   describe "url_key initialization" do
-    it "has a random 20 character string if no value is specified" do
-      page = build(:page)
+    it "sets a random 10 digit url key if none exist" do
+      page = build(:page, url_key: nil)
+      page.save!
 
       expect(page.url_key.length).to eq(10)
     end
