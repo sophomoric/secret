@@ -9,17 +9,23 @@ $(function(){
 
     function initialize() {
       $useThisButton.click(addCurrentImg);
+      this.imageMap = [];
     }
 
     function addCurrentImg(e) {
       e.preventDefault();
       var imageUrl = Functions.currentImg();
-      var newValue = $message.val() + Functions.buildImgTag(imageUrl);
+      var newValue = $message.val() + addImgShortcut(imageUrl);
       $message.val(newValue);
       $message.trigger("keyup");
       $htmlBody.animate({
         scrollTop: $message.offset().top
       }, 1000);
+    }
+
+    function addImgShortcut(imageUrl) {
+      imageAdder.imageMap.push(imageUrl);
+      return " imgkey" + (imageAdder.imageMap.length -1) + " ";
     }
 
     return {

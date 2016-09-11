@@ -20,3 +20,4 @@
 //= require giphy
 //= require search_input
 //= require image_adder
+//= require insert_image_tags

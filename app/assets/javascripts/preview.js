@@ -18,7 +18,8 @@ $(function(){
   var preview = function(){
     var message = $message.val();
     if (message) {
-      $.post("/previews", { preview: message }, displayMessage);
+      var finalMessage = Functions.insertImgTags(message, imageAdder.imageMap);
+      $.post("/previews", { preview: finalMessage }, displayMessage);
     } else {
       displayMessage(previewPlaceholder);
     };

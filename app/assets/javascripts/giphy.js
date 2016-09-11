@@ -92,7 +92,17 @@ $(function(){
     return "<img src='" + url + "'>";
   }
 
+  function insertImgTags(message, imageMap) {
+    imageMap.forEach(function(url, index){
+      var key = "imgkey" + index;
+      var imgTag = Functions.buildImgTag(url);
+      message = message.replace(key, imgTag);
+    });
+    return message;
+  }
+
   window.Functions = {};
   window.Functions.currentImg = currentImg;
   window.Functions.buildImgTag = buildImgTag;
+  window.Functions.insertImgTags = insertImgTags;
 });

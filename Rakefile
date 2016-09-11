@@ -15,3 +15,4 @@ if defined? RSpec
 end
 
 task default: "bundler:audit"
+task default: "teaspoon"
