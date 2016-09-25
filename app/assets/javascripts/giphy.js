@@ -101,7 +101,6 @@ $(function(){
     return message;
   }
 
-  window.Functions = {};
   window.Functions.currentImg = currentImg;
   window.Functions.buildImgTag = buildImgTag;
   window.Functions.insertImgTags = insertImgTags;

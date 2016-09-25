@@ -3,10 +3,14 @@ $(function(){
   var $previewLabel = $(".page_url_key label");
   var previewPlaceholder = $previewLabel.text();
 
-  $input.keyup(function(){
-    var split = previewPlaceholder.split("/")
+  Functions.modifyLabelText = function modifyLabelText(currentText, urlKey) {
+    var split = currentText.split("/");
     var oldText = split.slice(0, split.length - 1);
-    var newText = oldText.join("/") + "/" + $input.val();
-    $previewLabel.text(newText);
-  })
+    return oldText.join("/") + "/" + encodeURI(urlKey);
+  };
+
+  $input.keyup(function(){
+    var labelText = Functions.modifyLabelText(previewPlaceholder, $input.val());
+    $previewLabel.text(labelText);
+  });
 });

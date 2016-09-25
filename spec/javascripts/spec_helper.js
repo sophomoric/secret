@@ -1,1 +1,2 @@
+//= require functions
 //= require jquery
