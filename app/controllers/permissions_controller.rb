@@ -20,7 +20,7 @@ class PermissionsController < ApplicationController
       @page.password = page_password
       reveal(@page)
     else
-      redirect_to :back
+      redirect_to "/#{url_key}"
     end
   end
 
