@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 describe Page do
-  it { should validate_uniqueness_of(:url_key) }
+  it "validates uniqueness of url_key" do
+    page = create(:page, url_key: "AA", password: nil)
+
+    expect(page).to validate_uniqueness_of(:url_key)
+  end
 
   describe "url_key initialization" do
     it "sets a random 10 digit url key if none exist" do
