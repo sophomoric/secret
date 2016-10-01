@@ -19,4 +19,13 @@ RSpec.configure do |config|
   config.order = :random
 end
 
+require "shoulda/matchers"
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 WebMock.disable_net_connect!(allow_localhost: true)

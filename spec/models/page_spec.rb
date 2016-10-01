@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Page, :type => :model do
-  it { is_expected.to validate_uniqueness_of(:url_key) }
+describe Page do
+  it { should validate_uniqueness_of(:url_key) }
 
   describe "url_key initialization" do
     it "sets a random 10 digit url key if none exist" do
