@@ -371,7 +371,7 @@ DEPENDENCIES
   pry-rails
   rack-canonical-host
   rack-timeout
-  rails
+  rails (~> 5.0.0.1)
   recipient_interceptor
   redcarpet
   refills
