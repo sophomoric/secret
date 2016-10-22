@@ -1,4 +1,7 @@
-# Onetime Note
+# Onetime Note [![Build Status](https://travis-ci.org/sophomoric/secret.svg?branch=master)](https://travis-ci.org/sophomoric/secret)
+[![Code Climate](https://codeclimate.com/github/sophomoric/secret/badges/gpa.svg)](https://codeclimate.com/github/sophomoric/secret)
+[![Test Coverage](https://codeclimate.com/github/sophomoric/secret/badges/coverage.svg)](https://codeclimate.com/github/sophomoric/secret/coverage)
+[![Issue Count](https://codeclimate.com/github/sophomoric/secret/badges/issue_count.svg)](https://codeclimate.com/github/sophomoric/secret)
   * Users can share a onetime note. As the name implies, the note vanishes after
     it has been seen once.
   * This website currently lives at onetimenote.com (hosted by DigitalOcean)
