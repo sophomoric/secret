@@ -1,16 +1,13 @@
 $(function(){
   "use strict";
 
-  window.Secret = window.Secret || {};
-
   var $resultBox = $(".result");
   var $stepButton = $(".step");
   var $navigation = $(".navigation");
   var $gifSearchForm = $(".gif_search");
 
   $gifSearchForm.on("ajax:success", function(e, data){
-    reset();
-    window.Secret.data = data;
+    window.counter = new Counter(data);
     if (!data.length) {
       $resultBox.css("height", "auto");
       $resultBox.html("<p>No Results</p>");
@@ -24,69 +21,22 @@ $(function(){
 
   $stepButton.click(function(e){
     var increment = parseInt($(e.target).attr("data-value"));
-    counterStep(increment);
+    counter.counterStep(increment);
     insertCurrentImg();
   });
 
- // helpers
-
- function incrementCounter(num) {
-   window.Secret.currentI = window.Secret.currentI + num;
- }
-
- function reset() {
-   window.Secret = {};
-   window.Secret.currentI = 0;
-  }
-
-  function resetCounter(index) {
-    window.Secret.currentI = index;
-  }
-
-  function counterStep(increment) {
-    if ((endOfArray() && increment > 0) || notInitialized()) {
-      resetCounter(0);
-    } else if (startOfArray() && increment < 0) {
-      resetCounter(arrayLength() - 1);
-    } else {
-      incrementCounter(increment);
-    }
-  }
-
-  function arrayLength() {
-    return window.Secret.data.length;
-  }
-
-  function endOfArray() {
-    return window.Secret.currentI >= arrayLength() -1;
-  }
-
-  function startOfArray() {
-    return window.Secret.currentI < 1;
-  }
-
-  function notInitialized() {
-    return window.Secret.currentI === undefined;
-  }
+  // helpers
 
   function insertCurrentImgAndIncrement() {
     insertCurrentImg();
-    counterStep(1);
+    counter.counterStep(1);
   }
 
   function insertCurrentImg() {
-    $resultBox.html(buildImgTag(currentImg()));
+    $resultBox.html(buildImgTag(counter.currentImg()));
   }
 
   // global functions
-
-  function currentImg() {
-    if (window.Secret.data.length) {
-      return window.Secret.data[window.Secret.currentI];
-    } else {
-      return "";
-    }
-  }
 
   function buildImgTag(url) {
     return "<img src='" + url + "'>";
@@ -101,7 +51,6 @@ $(function(){
     return message;
   }
 
-  window.Functions.currentImg = currentImg;
   window.Functions.buildImgTag = buildImgTag;
   window.Functions.insertImgTags = insertImgTags;
 });

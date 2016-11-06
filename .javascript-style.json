@@ -23,7 +23,9 @@
     "angular",
     "inject",
     "module",
-    "Functions"
+    "Functions",
+    "Counter",
+    "counter"
   ],
   "quotmark": true,
   "trailing": true,

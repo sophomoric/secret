@@ -18,6 +18,7 @@
 //= require preview
 //= require url_key
 //= require toggle_options
+//= require counter
 //= require giphy
 //= require search_input
 //= require image_adder

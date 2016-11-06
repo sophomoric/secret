@@ -14,7 +14,7 @@ $(function(){
 
     function addCurrentImg(e) {
       e.preventDefault();
-      var imageUrl = Functions.currentImg();
+      var imageUrl = counter.currentImg();
       var newValue = $message.val() + addImgShortcut(imageUrl);
       $message.val(newValue);
       $message.trigger("keyup");
