@@ -27,11 +27,6 @@ $(function(){
 
   // helpers
 
-  function insertCurrentImgAndIncrement() {
-    insertCurrentImg();
-    counter.counterStep(1);
-  }
-
   function insertCurrentImg() {
     $resultBox.html(buildImgTag(counter.currentImg()));
   }
