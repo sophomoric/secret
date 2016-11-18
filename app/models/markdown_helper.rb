@@ -9,17 +9,28 @@ class MarkdownHelper
   }
 
   def initialize(text)
-    @text = text
+    @text = replace_newlines(text)
   end
 
   def render
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, OPTIONS)
-    markdown.render(sanitized_text).html_safe
+    markdown.html_safe
   end
 
   private
 
+  def markdown
+    markdown_generator.render(sanitized_text)
+  end
+
+  def markdown_generator
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML, OPTIONS)
+  end
+
   def sanitized_text
     sanitize(@text, tags: %w(a img h1 p br))
+  end
+
+  def replace_newlines(text)
+    text.gsub("\n", "\n\n")
   end
 end

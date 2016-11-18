@@ -16,5 +16,11 @@ RSpec.describe MarkdownHelper, :type => :model do
       expect(helper.render).to include("<img src=")
       expect(helper.render).not_to include("<script>")
     end
+
+    it "handles single newlines with <p> tags" do
+      helper = MarkdownHelper.new("line1\nline2")
+
+      expect(helper.render).to eq("<p>line1</p>\n\n<p>line2</p>\n")
+    end
   end
 end
