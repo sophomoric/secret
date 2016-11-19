@@ -7,3 +7,16 @@ body {
     @include shift(3);
   }
 }
+
+.input {
+  @include span-columns(6);
+}
+
+.message-wrap {
+  overflow: auto;
+  textarea,
+  .preview-box {
+    min-height: 70px;
+    @include span-columns(6);
+  }
+}
