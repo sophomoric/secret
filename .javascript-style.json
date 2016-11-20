@@ -25,7 +25,9 @@
     "module",
     "Functions",
     "Counter",
-    "counter"
+    "counter",
+    "ImageAdder",
+    "imageAdder"
   ],
   "quotmark": true,
   "trailing": true,
