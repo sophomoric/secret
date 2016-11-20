@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User searches gif", js: true do
+xfeature "User searches gif", js: true do
   include GiphyHelper
 
   scenario do

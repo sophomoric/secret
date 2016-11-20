@@ -10,11 +10,13 @@ $(function(){
       return oldText.join("/") + "/" + encodeURI(key);
     };
 
-    this.$input.keyup(function(){
+    this.updateLabel = function(){
       var currentInput = this.$input.val();
       var labelText = this.modifyLabelText(this.placeholder, currentInput);
       this.$previewLabel.text(labelText);
-    });
+    };
+
+    this.$input.keyup(this.updateLabel.bind(this));
   };
 
   window.UrlKey = UrlKey;
