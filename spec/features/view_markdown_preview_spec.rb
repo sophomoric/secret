@@ -1,12 +1,14 @@
 require "rails_helper"
 
-feature "Visitor views markdown preview", js: true do
+xfeature "Visitor views markdown preview", js: true do
   scenario "inserts link" do
     visit new_page_path
 
-    fill_in "page_message", with: "<a href='www.example.com'>example</a>"
+    fill_in "page_message", with: "<a href='http://www.example.com'>example</a>"
 
-    expect(page).to have_link("example")
+    within ".preview-box" do
+      expect(page).to have_link("example")
+    end
   end
 
   scenario "edits url_key" do

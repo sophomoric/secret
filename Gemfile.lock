@@ -38,7 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     airbrake (5.5.0)
       airbrake-ruby (~> 1.5)
     airbrake-ruby (1.5.0)
@@ -86,6 +87,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.14)
+      capybara (>= 1.0, < 3)
+      launchy
     capybara-webkit (1.11.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
@@ -191,21 +195,20 @@ GEM
     net-ssh (3.2.0)
     newrelic_rpm (3.16.3.323)
     nio4r (1.2.1)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     normalize-rails (3.0.3)
     oj (2.17.4)
     parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.19.0)
-    pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    public_suffix (2.0.4)
     rack (2.0.1)
     rack-canonical-host (0.2.2)
       addressable (> 0, < 3)
@@ -355,6 +358,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
+  capybara-screenshot
   capybara-webkit
   coffee-rails (~> 4.1.0)
   database_cleaner
