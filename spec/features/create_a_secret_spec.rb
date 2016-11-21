@@ -39,4 +39,15 @@ feature "Visitor Creates a Secret" do
 
     expect(page).to have_content("can't be blank")
   end
+
+  scenario "page with errors on optional field" do
+    create(:page, url_key: "taken")
+    visit new_page_path
+    fill_in "page_message", with: "blah"
+    fill_in "page_url_key", with: "taken"
+
+    click_button "Create"
+
+    expect(page).to have_text("has already been taken")
+  end
 end
