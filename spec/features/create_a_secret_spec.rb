@@ -16,16 +16,16 @@ feature "Visitor Creates a Secret" do
     expect(Page.count).to eq(0)
   end
 
-  scenario "no url_key" do
+  scenario "custom url key and password" do
     visit new_page_path
-
-    expect(page).to have_text(root_path + "example")
-
+    fill_in "page_url_key", with: "example"
     fill_in "page_message", with: "Stop Rebulba!"
     fill_in "page_duration", with: 3
     fill_in "page_password", with: "Password"
 
     click_button "Create"
+
+    expect(page).to have_content("example")
 
     click_link("here")
     fill_in "Password", with: "Password"

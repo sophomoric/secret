@@ -18,8 +18,8 @@
     <%= f.input(
       :url_key,
       as: :string,
-      placeholder: "example",
-      label: "Specify url: #{root_url + "example"}"
+      placeholder: "url-key-example",
+      label: "Specify url: #{root_url + @page.url_key}"
     ) %>
     <%= f.input :password %>
   </div>

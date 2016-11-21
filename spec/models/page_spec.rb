@@ -8,9 +8,8 @@ describe Page do
   end
 
   describe "url_key initialization" do
-    it "sets a random 10 digit url key if none exist" do
-      page = build(:page, url_key: nil)
-      page.save!
+    it "has a random 20 character string if no value is specified" do
+      page = build(:page)
 
       expect(page.url_key.length).to eq(10)
     end
