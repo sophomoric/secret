@@ -13,7 +13,7 @@
     <p>your onetime note preview here...</p>
   </div>
 
-  <div class="optional-fields <%= "hidden" unless @page.errors.present? %>">
+  <div class="optional-fields <%= @page.optional_fields_state %>">
     <%= f.input :duration, input_html: { value: 7, max: 10, min: 1 } %>
     <%= f.input(
       :url_key,

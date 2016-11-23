@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def new
-    @page = Page.new
+    @page = PagePresenter.new(Page.new)
   end
 
   def create
-    @page = Page.new(page_params)
+    @page = PagePresenter.new(Page.new(page_params))
 
     if @page.save
       render :success
