@@ -27,7 +27,11 @@
     "Counter",
     "counter",
     "ImageAdder",
-    "imageAdder"
+    "imageAdder",
+    "Preview",
+    "preview",
+    "afterEach",
+    "beforeEach"
   ],
   "quotmark": true,
   "trailing": true,

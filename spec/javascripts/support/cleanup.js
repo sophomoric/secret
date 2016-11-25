@@ -1,0 +1,3 @@
+afterEach(function() {
+  $("body").html("");
+});

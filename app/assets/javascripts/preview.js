@@ -1,31 +1,31 @@
 $(function(){
-  var $message = $("#page_message");
-  var $previewBox = $(".preview-box");
-  var previewPlaceholder = $previewBox.html()
-
-  $message.keyup(function(){
-    delay(preview, 1000);
-  })
-
-  var delay = (function(){
-    var timer = 0;
-    return function(callback, ms){
-      clearTimeout(timer);
-      timer = setTimeout(callback, ms);
-    };
-  })();
-
-  var preview = function(){
-    var message = $message.val();
-    if (message) {
-      var finalMessage = Functions.insertImgTags(message, imageAdder.imageMap);
-      $.post("/previews", { preview: finalMessage }, displayMessage);
-    } else {
-      displayMessage(previewPlaceholder);
-    };
+  var Preview = function Preview() {
+    this.$message = $("#page_message");
+    this.$previewBox = $(".preview-box");
+    this.previewPlaceholder = this.$previewBox.html();
   };
 
-  var displayMessage = function(text){
-    $previewBox.html(text);
+  Preview.prototype = {
+    createPreview: function createPreview(){
+      var message = this.$message.val();
+      if (message) {
+        $.post(
+          "/previews",
+          { preview: this.finalMessage(message) },
+          this.displayMessage.bind(this)
+        );
+      } else {
+        this.displayMessage.bind(this)(this.previewPlaceholder);
+      }
+    },
+    finalMessage: function(message){
+      return Functions.insertImgTags(message, imageAdder.imageMap);
+    },
+    displayMessage: function(text){
+      this.$previewBox.html(text);
+    }
   };
+
+  window.Preview = Preview;
+  window.preview = new Preview();
 });

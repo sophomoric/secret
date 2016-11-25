@@ -16,6 +16,7 @@
 //= require jquery.autosize
 //= require textarea
 //= require preview
+//= require preview_timer
 //= require url_key
 //= require toggle_options
 //= require counter
