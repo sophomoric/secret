@@ -1,31 +1,36 @@
 $(function(){
-  var $message = $("#page_message");
-  var $previewBox = $(".preview-box");
-  var previewPlaceholder = $previewBox.html()
+  var Preview = function Preview(){
+    this.$message = $("#page_message");
+    this.$previewBox = $(".preview-box");
+    this.previewPlaceholder = this.$previewBox.html()
 
-  $message.keyup(function(){
-    delay(preview, 1000);
-  })
+    this.delay = (function(){
+      var timer = 0;
+      return function(callback, ms){
+        clearTimeout(timer);
+        timer = setTimeout(callback, ms);
+      };
+    })();
 
-  var delay = (function(){
-    var timer = 0;
-    return function(callback, ms){
-      clearTimeout(timer);
-      timer = setTimeout(callback, ms);
+    this.$message.keyup(this.delay(preview, 1000).bind(this))
+
+
+
+    var preview = function(){
+      var message = this.$message.val();
+      if (message) {
+        var finalMessage = Functions.insertImgTags(message, imageAdder.imageMap);
+        $.post("/previews", { preview: finalMessage }, displayMessage);
+      } else {
+        displayMessage(previewPlaceholder);
+      };
     };
-  })();
 
-  var preview = function(){
-    var message = $message.val();
-    if (message) {
-      var finalMessage = Functions.insertImgTags(message, imageAdder.imageMap);
-      $.post("/previews", { preview: finalMessage }, displayMessage);
-    } else {
-      displayMessage(previewPlaceholder);
+    var displayMessage = function(text){
+      this.$previewBox.html(text);
     };
   };
 
-  var displayMessage = function(text){
-    $previewBox.html(text);
-  };
+  window.Preview = Preview;
+  window.preview = new Preview();
 });

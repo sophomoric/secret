@@ -6,12 +6,15 @@ $(function(){
     this.$useThisButton.click(addCurrentImg.bind(this));
     this.imageMap = [];
 
+    this.$gifResults = $("div.result, div.navigation");
+
     function addCurrentImg(e) {
       e.preventDefault();
       var imageUrl = counter.currentImg();
       var newValue = this.$message.val() + addImgShortcut(imageUrl);
       this.$message.val(newValue);
       this.$message.trigger("keyup");
+      this.$gifResults.hide();
       this.$htmlBody.animate({
         scrollTop: this.$message.offset().top
       }, 1000);
