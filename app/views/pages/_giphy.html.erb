@@ -11,7 +11,11 @@
 
   <%= simple_form_for :gif_search, url: "/gif_searches", remote: true do |f| %>
     <div class="giphy-search">
-      <%= f.input :phrase, label: false, input_html: { placeholder: "Search Gif..." } %>
+      <%= f.input(
+        :phrase,
+        label: false,
+        input_html: { placeholder: "Search Gif...", autocomplete: "off" }
+      ) %>
       <%= image_tag("powered_by_giphy.png", class: "logo") %>
     </div>
     <%= f.submit "Search", class: "search" %>
