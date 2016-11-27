@@ -7,7 +7,7 @@ $(function(){
   var $gifSearchForm = $(".gif_search");
 
   $gifSearchForm.on("ajax:success", function(e, data){
-    window.counter = new Counter(data);
+    window.counter.resetData(data);
     if (!data.length) {
       $resultBox.css("height", "auto");
       $resultBox.html("<p>No Results</p>");

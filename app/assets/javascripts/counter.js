@@ -1,9 +1,8 @@
 $(function(){
   "use strict";
 
-  var Counter = function Counter(data){
+  var Counter = function Counter(){
     this.currentI = 0;
-    this.data = data;
   };
 
   Counter.prototype.currentImg = function currentImg() {
@@ -40,9 +39,15 @@ $(function(){
     this.currentI = index;
   };
 
+  Counter.prototype.resetData = function resetData(data) {
+    this.data = data;
+    this.currentI = 0;
+  };
+
   Counter.prototype.incrementCounter = function incrementCounter(num) {
     this.currentI = this.currentI + num;
   };
 
   window.Counter = Counter;
+  window.counter = new Counter();
 });

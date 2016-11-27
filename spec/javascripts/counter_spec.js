@@ -12,7 +12,10 @@ $(function(){
 
     describe("counterStep", function() {
       it("increments the counter", function() {
-        var counter = new Counter(["image0", "image1"]);
+        var counter = new Counter();
+        counter.resetData(["image0", "image1"]);
+
+        expect(counter.currentI).toEqual(0);
 
         counter.counterStep(1);
 
@@ -21,7 +24,8 @@ $(function(){
 
       it("loops back around to zero", function() {
         var data = ["image0", "image1", "image2"];
-        var counter = new Counter(data);
+        var counter = new Counter();
+        counter.resetData(data);
 
         counter.counterStep(1);
         counter.counterStep(1);
@@ -32,7 +36,8 @@ $(function(){
 
       it("allows a negative increment, and loops back around", function() {
         var data = ["image0", "image1", "image2"];
-        var counter = new Counter(data);
+        var counter = new Counter();
+        counter.resetData(data);
 
         expect(counter.currentI).toEqual(0);
 
@@ -45,8 +50,9 @@ $(function(){
     });
 
     describe("currentImg", function() {
-      it("returns the image from the data array indexed at currentI", function() {
-        var counter = new Counter(["image0", "image1"]);
+      it("returns image from the data array indexed at currentI", function(){
+        var counter = new Counter();
+        counter.resetData(["image0", "image1"]);
 
         expect(counter.currentI).toEqual(0);
         expect(counter.currentImg()).toEqual("image0");

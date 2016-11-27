@@ -1,5 +1,6 @@
 $(function(){
-  var ImageAdder = function(){
+  var ImageAdder = function(counter){
+    this.counter = counter;
     this.$message = $("#page_message");
     this.$useThisButton = $(".use");
     this.$htmlBody = $("html, body");
@@ -8,7 +9,7 @@ $(function(){
 
     function addCurrentImg(e) {
       e.preventDefault();
-      var imageUrl = counter.currentImg();
+      var imageUrl = this.counter.currentImg();
       var newValue = this.$message.val() + addImgShortcut(imageUrl);
       this.$message.val(newValue);
       this.$message.trigger("keyup");
@@ -24,5 +25,5 @@ $(function(){
   };
 
   window.ImageAdder = ImageAdder;
-  window.imageAdder = new ImageAdder();
+  window.imageAdder = new ImageAdder(window.counter);
 });
