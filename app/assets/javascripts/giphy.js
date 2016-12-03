@@ -1,51 +1,37 @@
 $(function(){
-  "use strict";
+  var Giphy = function Giphy(counter){
+    this.counter = counter;
+    this.$resultBox = $(".result");
+    this.$stepButton = $(".step");
+    this.$navigation = $(".navigation");
+    this.$gifSearchForm = $(".gif_search");
+    this.$gifSearchForm.on("ajax:success", this.setResultBox.bind(this));
+    this.$stepButton.click(this.takeStep.bind(this));
+  };
 
-  var $resultBox = $(".result");
-  var $stepButton = $(".step");
-  var $navigation = $(".navigation");
-  var $gifSearchForm = $(".gif_search");
-
-  $gifSearchForm.on("ajax:success", function(e, data){
-    window.counter.resetData(data);
-    if (!data.length) {
-      $resultBox.css("height", "auto");
-      $resultBox.html("<p>No Results</p>");
-      $navigation.hide();
-    } else {
-      $resultBox.css("height", 200);
-      $navigation.show();
-      insertCurrentImg();
+  Giphy.prototype = {
+    insertCurrentImg: function insertCurrentImg() {
+      this.$resultBox.html(Functions.buildImgTag(this.counter.currentImg()));
+    },
+    setResultBox: function(e, data) {
+      this.counter.resetData(data);
+      if (!data.length) {
+        this.$resultBox.css("height", "auto");
+        this.$resultBox.html("<p>No Results</p>");
+        this.$navigation.hide();
+      } else {
+        this.$resultBox.css("height", 200);
+        this.$navigation.show();
+        this.insertCurrentImg();
+      }
+    },
+    takeStep: function(e){
+      var increment = parseInt($(e.target).attr("data-value"));
+      this.counter.counterStep(increment);
+      this.insertCurrentImg();
     }
-  });
+  };
 
-  $stepButton.click(function(e){
-    var increment = parseInt($(e.target).attr("data-value"));
-    counter.counterStep(increment);
-    insertCurrentImg();
-  });
-
-  // helpers
-
-  function insertCurrentImg() {
-    $resultBox.html(buildImgTag(counter.currentImg()));
-  }
-
-  // global functions
-
-  function buildImgTag(url) {
-    return "<img src='" + url + "'>";
-  }
-
-  function insertImgTags(message, imageMap) {
-    imageMap.forEach(function(url, index){
-      var key = "imgkey" + index;
-      var imgTag = Functions.buildImgTag(url);
-      message = message.replace(key, imgTag);
-    });
-    return message;
-  }
-
-  window.Functions.buildImgTag = buildImgTag;
-  window.Functions.insertImgTags = insertImgTags;
+  window.Giphy = Giphy;
+  window.giphy = new Giphy(window.counter);
 });

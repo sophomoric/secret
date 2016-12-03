@@ -1,24 +1,38 @@
 //= require giphy
 
-describe("Giphy", function() {
-  describe("insertImgTags", function() {
-    it("replaces keys with image tags", function() {
-      var message = "imgkey0 cat!";
-      var imageMap = ["caturl.gif"];
+$(function(){
+  describe("Giphy", function() {
+    describe("taking a step", function() {
+      // mock the counter Object
+      var CounterMock = function(){
+        this.currentImgCalled = false;
+      };
 
-      var result = Functions.insertImgTags(message, imageMap);
+      CounterMock.prototype = {
+        counterStep: function(increment){
+          this.lastCounterStep = increment;
+        },
+        currentImg: function() {
+          this.currentImgCalled = true;
+        }
+      };
 
-      var finalMessage = "<img src='caturl.gif'> cat!";
-      expect(result).toEqual(finalMessage);
-    });
+      it("calls the counterStep and currentImg methods on counter", function() {
+        var html = $("<div class='navigation'>" +
+            "<button class='use'>Use</button>" +
+            "<button class='step back' data-value='-1'>Back</button>" +
+            "<button class='step next' data-value='1'>Next</button></div>" +
+            "</div>");
+        $("body").append(html);
 
-    it("does not affect a message without image keys", function() {
-      var message = "Hi cat!";
-      var imageMap = ["caturl.gif"];
+        var counterMock = new CounterMock();
+        window.giphy = new window.Giphy(counterMock);
 
-      var result = Functions.insertImgTags(message, imageMap);
+        $(".next").trigger("click"); //data-value 1
 
-      expect(result).toEqual(message);
+        expect(counterMock.lastCounterStep).toEqual(1);
+        expect(counterMock.currentImgCalled).toEqual(true);
+      });
     });
   });
 });
