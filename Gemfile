@@ -9,6 +9,7 @@ gem "attr_encrypted"
 
 gem "bourbon", "~> 4.2.0"
 gem "bcrypt"
+gem "clipboard-rails"
 gem "browser"
 gem "coffee-rails", "~> 4.1.0"
 gem "delayed_job_active_record"

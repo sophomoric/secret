@@ -1,10 +1,13 @@
-<p>Your secret page is available at:</p>
-<p><b><%= root_url + @page.url_key %></b></p>
-<p>Copy, paste and send to a friend</p>
+<h1>Your onetime note:</h1>
 
-<p>To view and destroy your own page click
+<div class="copy-block">
+  <button class="copy" data-clipboard-target="#copy-text">Copy Link</button>
+  <input id="copy-text" value="<%= page_url(@page) %>">
+</div>
+
+<p>To view and destroy this page click
   <%= link_to(
     "here",
-    root_url + @page.url_key
+    page_url(@page)
   ) %>
 </p>

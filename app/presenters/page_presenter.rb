@@ -10,6 +10,10 @@ class PagePresenter < SimpleDelegator
     end
   end
 
+  def to_param
+    url_key
+  end
+
   private
 
   def optional_fields_errors?

@@ -9,9 +9,10 @@ feature "Visitor Creates a Secret" do
 
     click_button "Create"
 
-    expect(page).to have_content("example")
+    expect(page).to have_field("copy-text", with: page_url("example"))
 
     click_link("here")
+
     expect(page).to have_text("Stop Rebulba!")
     expect(Page.count).to eq(0)
   end
@@ -25,7 +26,7 @@ feature "Visitor Creates a Secret" do
 
     click_button "Create"
 
-    expect(page).to have_content("example")
+    expect(page).to have_field("copy-text", with: page_url("example"))
 
     click_link("here")
     fill_in "Password", with: "Password"

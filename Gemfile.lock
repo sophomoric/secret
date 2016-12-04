@@ -94,6 +94,7 @@ GEM
       capybara (>= 2.3.0, < 2.8.0)
       json
     chronic (0.10.2)
+    clipboard-rails (1.5.15)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -351,6 +352,7 @@ DEPENDENCIES
   capistrano-rbenv
   capybara-screenshot
   capybara-webkit
+  clipboard-rails
   coffee-rails (~> 4.1.0)
   database_cleaner
   delayed_job_active_record
