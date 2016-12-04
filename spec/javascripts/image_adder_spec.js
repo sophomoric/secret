@@ -6,7 +6,7 @@ $(function(){
       it("inserts a placeholder on the page imagekey0", function() {
         var $useButton = $("<button class='use'></button>");
         var $pageMessage = $("<textarea id='page_message'></textarea>");
-        $("body").append($useButton).append($pageMessage);
+        $("#giphy-page").append($useButton).append($pageMessage);
         var counterStub = {
           currentImg: function currentImg(){ return "url.currentImg.gif"; }
         };

@@ -9,7 +9,7 @@ $(function(){
             "<button class='step back' data-value='-1'>Back</button>" +
             "<button class='step next' data-value='1'>Next</button></div>" +
             "</div>");
-        $("body").append(html);
+        $("#giphy-page").append(html);
 
         var counterMock = new window.mockHelpers.Counter();
         window.giphy = new window.Giphy(counterMock);

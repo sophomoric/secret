@@ -6,7 +6,7 @@ $(function(){
       it("displays default text if box is empty", function() {
         var $pageMessage = $("<textarea id='page_message'></textarea>");
         var $previewBox = $("<div class='preview-box'>Default Text!</div>");
-        $("body").append($pageMessage).append($previewBox);
+        $("#giphy-page").append($pageMessage).append($previewBox);
 
         var preview = new Preview();
         preview.createPreview();
