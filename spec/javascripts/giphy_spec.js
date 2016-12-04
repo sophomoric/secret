@@ -3,20 +3,6 @@
 $(function(){
   describe("Giphy", function() {
     describe("taking a step", function() {
-      // mock the counter Object
-      var CounterMock = function(){
-        this.currentImgCalled = false;
-      };
-
-      CounterMock.prototype = {
-        counterStep: function(increment){
-          this.lastCounterStep = increment;
-        },
-        currentImg: function() {
-          this.currentImgCalled = true;
-        }
-      };
-
       it("calls the counterStep and currentImg methods on counter", function() {
         var html = $("<div class='navigation'>" +
             "<button class='use'>Use</button>" +
@@ -25,7 +11,7 @@ $(function(){
             "</div>");
         $("body").append(html);
 
-        var counterMock = new CounterMock();
+        var counterMock = new window.mockHelpers.Counter();
         window.giphy = new window.Giphy(counterMock);
 
         $(".next").trigger("click"); //data-value 1
