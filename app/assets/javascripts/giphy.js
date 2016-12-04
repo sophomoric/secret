@@ -10,11 +10,14 @@ $(function(){
   };
 
   Giphy.prototype = {
-    insertCurrentImg: function insertCurrentImg() {
-      this.$resultBox.html(Functions.buildImgTag(this.counter.currentImg()));
+    hideNavigation: function(){
+      this.$resultBox.hide();
+      this.$navigation.hide();
     },
+
     setResultBox: function(e, data) {
       this.counter.resetData(data);
+      this.$resultBox.show();
       if (!data.length) {
         this.$resultBox.css("height", "auto");
         this.$resultBox.html("<p>No Results</p>");
@@ -22,13 +25,18 @@ $(function(){
       } else {
         this.$resultBox.css("height", 200);
         this.$navigation.show();
-        this.insertCurrentImg();
+        this._insertCurrentImg();
       }
     },
+
     takeStep: function(e){
       var increment = parseInt($(e.target).attr("data-value"));
       this.counter.counterStep(increment);
-      this.insertCurrentImg();
+      this._insertCurrentImg();
+    },
+
+    _insertCurrentImg: function _insertCurrentImg() {
+      this.$resultBox.html(Functions.buildImgTag(this.counter.currentImg()));
     }
   };
 

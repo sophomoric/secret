@@ -1,9 +1,9 @@
 $(function(){
-  var ImageAdder = function ImageAdder(counter){
+  var ImageAdder = function ImageAdder(counter, giphy){
     this.counter = counter;
+    this.giphy = giphy;
     this.$message = $("#page_message");
     this.$useThisButton = $(".use");
-    this.$htmlBody = $("html, body");
     this.$useThisButton.click(this.addCurrentImg.bind(this));
     this.imageMap = [];
   };
@@ -13,13 +13,7 @@ $(function(){
       e.preventDefault();
       this.imageMap.push(this._counterCurrentImg());
       this.$message.val(this._newMessageVal()).trigger("keyup");
-      this.animateScroll();
-    },
-
-    animateScroll: function(){
-      this.$htmlBody.animate({
-        scrollTop: this.$message.offset().top
-      }, 1000);
+      this.giphy.hideNavigation();
     },
 
     _lastImgKey: function(){
@@ -40,5 +34,5 @@ $(function(){
   };
 
   window.ImageAdder = ImageAdder;
-  window.imageAdder = new ImageAdder(window.counter);
+  window.imageAdder = new ImageAdder(window.counter, window.giphy);
 });

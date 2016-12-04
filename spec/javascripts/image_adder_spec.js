@@ -10,8 +10,11 @@ $(function(){
         var counterStub = {
           currentImg: function currentImg(){ return "url.currentImg.gif"; }
         };
+        var giphyStub = {
+          hideNavigation: function(){ }
+        };
 
-        window.imageAdder = new ImageAdder(counterStub);
+        var imageAdder = new ImageAdder(counterStub, giphyStub);
         $useButton.trigger("click");
 
         expect($pageMessage.val()).toEqual(" imgkey0 ");
