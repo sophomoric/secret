@@ -24,3 +24,5 @@
 //= require search_input
 //= require image_adder
 //= require insert_image_tags
+//= require clipboard
+//= require initialize_clipboard

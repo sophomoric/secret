@@ -17,6 +17,7 @@
     "jQuery",
     "jasmine",
     "beforeEach",
+    "Clipboard",
     "describe",
     "expect",
     "it",
