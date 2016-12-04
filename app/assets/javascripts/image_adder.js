@@ -1,26 +1,41 @@
 $(function(){
-  var ImageAdder = function(counter){
+  var ImageAdder = function ImageAdder(counter){
     this.counter = counter;
     this.$message = $("#page_message");
     this.$useThisButton = $(".use");
     this.$htmlBody = $("html, body");
-    this.$useThisButton.click(addCurrentImg.bind(this));
+    this.$useThisButton.click(this.addCurrentImg.bind(this));
     this.imageMap = [];
+  };
 
-    function addCurrentImg(e) {
+  ImageAdder.prototype = {
+    addCurrentImg: function addCurrentImg(e) {
       e.preventDefault();
-      var imageUrl = this.counter.currentImg();
-      var newValue = this.$message.val() + addImgShortcut(imageUrl);
-      this.$message.val(newValue);
-      this.$message.trigger("keyup");
+      this.imageMap.push(this._counterCurrentImg());
+      this.$message.val(this._newMessageVal()).trigger("keyup");
+      this.animateScroll();
+    },
+
+    animateScroll: function(){
       this.$htmlBody.animate({
         scrollTop: this.$message.offset().top
       }, 1000);
-    }
+    },
 
-    function addImgShortcut(imageUrl) {
-      imageAdder.imageMap.push(imageUrl);
-      return " imgkey" + (imageAdder.imageMap.length -1) + " ";
+    _lastImgKey: function(){
+      return " imgkey" + (this.imageMap.length -1) + " ";
+    },
+
+    _newMessageVal: function(){
+      return this._currentMessageVal() + this._lastImgKey();
+    },
+
+    _counterCurrentImg: function(){
+      return this.counter.currentImg();
+    },
+
+    _currentMessageVal: function(){
+      return this.$message.val();
     }
   };
 
