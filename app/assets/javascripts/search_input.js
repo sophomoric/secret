@@ -4,7 +4,7 @@ $(function(){
   //used twice
 
   $gifSearchInput.keypress(function(e) {
-    if (e.which == 13) {
+    if (e.which === 13) {
       $gifSearchForm.trigger("submit");
     }
   });

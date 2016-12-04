@@ -30,7 +30,7 @@ $(function(){
     },
 
     takeStep: function(e){
-      var increment = parseInt($(e.target).attr("data-value"));
+      var increment = parseInt($(e.target).attr("data-value"), 10);
       this.counter.counterStep(increment);
       this._insertCurrentImg();
     },

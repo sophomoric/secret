@@ -19,7 +19,7 @@
       :url_key,
       as: :string,
       placeholder: "url-key-example",
-      label: "Specify url: #{root_url + @page.url_key}"
+      label: "Specify url: #{page_url(@page)}"
     ) %>
     <%= f.input :password %>
   </div>

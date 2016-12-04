@@ -7,7 +7,7 @@ $(function(){
       clearTimeout(timer);
       timer = setTimeout(callback, ms);
     };
-  })();
+  }());
 
   var preview = function(){
     window.preview.createPreview();
