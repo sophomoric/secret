@@ -12,12 +12,9 @@ gem "bcrypt"
 gem "browser"
 gem "coffee-rails", "~> 4.1.0"
 gem "delayed_job_active_record"
-gem "email_validator"
-gem "flutie"
 
 gem "giphy"
 
-gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
 gem "autosize-rails"
@@ -34,7 +31,6 @@ gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "title"
 gem "uglifier", ">= 2.7.2"
-gem "unicorn"
 gem "whenever", require: false
 
 group :development do
