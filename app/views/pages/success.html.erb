@@ -1,13 +1,10 @@
 <h1>Your onetime note:</h1>
 
-<div class="copy-block">
-  <button class="copy" data-clipboard-target="#copy-text">Copy Link</button>
+<div class="copy-block copy" data-clipboard-target="#copy-text">
+  <button>Copy Link</button>
   <input id="copy-text" value="<%= page_url(@page) %>">
 </div>
 
-<p>To view and destroy this page click
-  <%= link_to(
-    "here",
-    page_url(@page)
-  ) %>
+<p>
+  To view and destroy this page click <%= link_to("here", page_url(@page)) %>
 </p>
