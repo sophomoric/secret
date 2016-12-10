@@ -1,17 +1,30 @@
-.error {
-  color: $red;
-}
+#giphy-page {
+  .error {
+    color: $red;
+  }
 
-.hidden {
-  display: none;
-}
+  .hidden {
+    display: none;
+  }
 
-.preview-box {
-  border: 1px dashed $black;
-  margin-top: 5px;
-  padding: 10px;
-}
+  .preview-box {
+    border: 1px dashed $black;
+    margin-top: 5px;
+    padding: 10px;
+  }
 
-#more-options {
-  float: right;
+  #more-options {
+    float: right;
+  }
+
+  .optional-fields {
+    .input {
+      margin-top: $small-spacing;
+    }
+  }
+
+  button,
+  [type="submit"] {
+    margin: $small-spacing 0;
+  }
 }
