@@ -1,7 +1,9 @@
 <h1>Your onetime note:</h1>
 
 <div class="copy-block copy" data-clipboard-target="#copy-text">
-  <button>Copy Link</button>
+  <button>
+    <%= image_tag("clippy.svg", alt: "Copy to clipboard") %>
+  </button>
   <input id="copy-text" value="<%= page_url(@page) %>">
 </div>
 

@@ -1,15 +1,25 @@
+$copy-block-width: 400px;
+$button-width: 40px;
+
 .copy-block {
   margin-bottom: 20px;
+  width: $copy-block-width;
 
-  @media screen and (min-width: 768px) {
-    @include outer-container;
+  button {
+    float: left;
+    height: 36px;
+    position: relative;
+    width: $button-width;
+  }
 
-    button {
-      @include span-columns(2);
-    }
+  img {
+    left: 10px;
+    position: absolute;
+    top: 4px;
+    width: 25px;
+  }
 
-    input {
-      @include span-columns(10);
-    }
+  input {
+    width: $copy-block-width - $button-width;
   }
 }
