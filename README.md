@@ -1,14 +1,17 @@
-# Onetime Note [![Build Status](https://travis-ci.org/sophomoric/secret.svg?branch=master)](https://travis-ci.org/sophomoric/secret)
+# Onetime Note
+[![Build Status](https://travis-ci.org/sophomoric/secret.svg?branch=master)](https://travis-ci.org/sophomoric/secret)
 [![Code Climate](https://codeclimate.com/github/sophomoric/secret/badges/gpa.svg)](https://codeclimate.com/github/sophomoric/secret)
 [![Test Coverage](https://codeclimate.com/github/sophomoric/secret/badges/coverage.svg)](https://codeclimate.com/github/sophomoric/secret/coverage)
 [![Issue Count](https://codeclimate.com/github/sophomoric/secret/badges/issue_count.svg)](https://codeclimate.com/github/sophomoric/secret)
+
+## Live Website
+  * https://onetimenote.com
   * Users can share a onetime note. As the name implies, the note vanishes after
     it has been seen once.
-  * This website currently lives at onetimenote.com (hosted by DigitalOcean)
 
 ## Gifs
- * Onetimenote integrates with Giphy's search api:
-   https://github.com/Giphy/GiphyAPI
+  * Onetimenote integrates with Giphy's search api:
+    https://github.com/Giphy/GiphyAPI
 
 ## Markdown
   * Notes use markdown so that users can build a page with images, text and
@@ -33,4 +36,8 @@
   * The browser will navigate away from the note 10 seconds after it has been
     viewed. The timing here can be specified between 1 and 10 seconds.
   * No password is required if this field is left blank.
+
+## Expiration
+  * If a user loses the url to find a note it will eventually expire.
+  * Unread notes are deleted from the server after 30 days.
 
