@@ -14,6 +14,7 @@ $(function(){
   };
 
   $message.keyup(function(){
+    window.preview.loading();
     delay(preview, 1000);
   });
 });

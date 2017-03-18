@@ -23,6 +23,10 @@ $(function(){
     },
     displayMessage: function(text){
       this.$previewBox.html(text);
+      this.$previewBox.css("opacity", 1);
+    },
+    loading: function() {
+      this.$previewBox.css("opacity", 0.3);
     }
   };
 
