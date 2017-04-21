@@ -1,6 +1,6 @@
 require "rails_helper"
 
-xfeature "Visitor views markdown preview", js: true do
+feature "Visitor views markdown preview", js: true do
   scenario "inserts link" do
     visit new_page_path
 
