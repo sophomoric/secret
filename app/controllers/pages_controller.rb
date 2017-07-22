@@ -18,6 +18,7 @@ class PagesController < ApplicationController
       :duration,
       :message,
       :password,
+      :redirect,
       :url_key
     )
   end

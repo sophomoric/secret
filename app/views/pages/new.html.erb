@@ -14,7 +14,6 @@
   </div>
 
   <div class="optional-fields <%= @page.optional_fields_state %>">
-    <%= f.input :duration, input_html: { value: 7, max: 10, min: 1 } %>
     <%= f.input(
       :url_key,
       as: :string,
@@ -22,9 +21,15 @@
       label: "Specify url: #{page_url(@page)}"
     ) %>
     <%= f.input :password %>
+    <%= f.input :redirect, label: "Vanish after several seconds" %>
+    <%= f.input(
+      :duration,
+      input_html: { value: 7, max: 10, min: 1 },
+      wrapper_html: { class: @page.duration_state }
+    ) %>
   </div>
 
   <%= f.button :submit, "Create Note" %>
-  <button id="more-options">More Options</button>
 <% end %>
 
+<button id="more-options">More Options</button>

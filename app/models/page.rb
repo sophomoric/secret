@@ -8,7 +8,8 @@ class Page < ActiveRecord::Base
   validates_uniqueness_of :url_key
   validates(
     :duration,
-    inclusion: { in: (1..10), message: "Must be between 1 and 10 seconds" }
+    inclusion: { in: (1..10), message: "Must be between 1 and 10 seconds" },
+    if: :redirect?
   )
 
   after_initialize :set_random_url_key

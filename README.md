@@ -33,8 +33,9 @@
   * The url for the note can be set to make it feel more personal: e.g.
     `https://onetimenote.com/happy-birthday-bob`
     Otherwise a random string is generated and used.
-  * The browser will navigate away from the note 10 seconds after it has been
-    viewed. The timing here can be specified between 1 and 10 seconds.
+  * The browser can navigate away from the note several seconds after it has
+    been viewed. This is disabled by default, but it can be set between 1 and 10
+    seconds
   * No password is required if this field is left blank.
 
 ## Expiration

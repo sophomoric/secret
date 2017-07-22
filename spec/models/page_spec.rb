@@ -16,11 +16,17 @@ describe Page do
   end
 
   describe "duration" do
-    it "cannot be outside the range of 1 and 10" do
-      page = build(:page, duration: 11)
+    it "cannot be outside the range of 1 and 10 if set to redirect" do
+      page = build(:page, duration: 11, redirect: true)
 
       expect(page).to_not be_valid
       expect(page.errors[:duration]).to be_present
+    end
+
+    it "ignores duration validation if redirect is set to false" do
+      page = build(:page, duration: 999, redirect: false)
+
+      expect(page).to be_valid
     end
 
     it "rounds to an integer" do

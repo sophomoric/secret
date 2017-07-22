@@ -10,11 +10,23 @@ class PagePresenter < SimpleDelegator
     end
   end
 
+  def duration_state
+    if duration_error?
+      ""
+    else
+      "hidden"
+    end
+  end
+
   def to_param
     url_key
   end
 
   private
+
+  def duration_error?
+    errors.include?(:duration)
+  end
 
   def optional_fields_errors?
     errors.any? { |field| OPTIONAL_FIELDS.include?(field) }

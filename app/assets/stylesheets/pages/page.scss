@@ -27,4 +27,10 @@
   [type="submit"] {
     margin: $small-spacing 0;
   }
+
+  #new_page {
+    .btn {
+      float: left;
+    }
+  }
 }
