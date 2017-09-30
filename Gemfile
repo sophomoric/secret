@@ -35,6 +35,7 @@ gem "uglifier", ">= 2.7.2"
 gem "whenever", require: false
 
 group :development do
+  gem "puma"
   gem "thin"
   gem "spring"
   gem "spring-commands-rspec"
