@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722190439) do
+ActiveRecord::Schema.define(version: 20170723204042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170722190439) do
     t.text     "encrypted_message"
     t.text     "encrypted_message_iv"
     t.boolean  "redirect",             default: false
+    t.datetime "expires_at"
   end
 
 end

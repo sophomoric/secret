@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 describe Page do
+  describe ".unexpired" do
+    it "does not allow expired pages to be viewed" do
+      _expired_page = create(:page, expires_at: 10.minutes.ago)
+      unexpired_page = create(:page, expires_at: 5.days.from_now)
+
+      expect(Page.unexpired).to eq([unexpired_page])
+    end
+  end
+
   it "validates uniqueness of url_key" do
     page = create(:page, url_key: "AA", password: nil)
 

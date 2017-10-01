@@ -16,10 +16,14 @@ class PagesController < ApplicationController
   def page_params
     params.require(:page).permit(
       :duration,
+      :expires_at,
       :message,
       :password,
       :redirect,
       :url_key
-    )
+    ).tap do |attributes|
+      attributes["expires_at"] =
+        Expiration.translate(attributes["expires_at"])
+    end
   end
 end

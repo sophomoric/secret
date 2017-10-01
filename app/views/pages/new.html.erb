@@ -21,6 +21,11 @@
       label: "Specify url: #{page_url(@page)}"
     ) %>
     <%= f.input :password %>
+    <%= f.input(
+      :expires_at,
+      collection: @page.expires_at_options,
+      selected: Expiration::DEFAULT
+    ) %>
     <%= f.input :redirect, label: "Vanish after several seconds" %>
     <%= f.input(
       :duration,

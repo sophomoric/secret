@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
 
   has_secure_password validations: false
 
+  scope :unexpired, -> { where("pages.expires_at >= ?", Time.zone.now) }
+
   validates :url_key, presence: true
   validates :message, presence: true
   validates_uniqueness_of :url_key

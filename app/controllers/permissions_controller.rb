@@ -2,7 +2,7 @@ require "browser"
 
 class PermissionsController < ApplicationController
   def new
-    @page = Page.find_by!(url_key: params[:url_key])
+    @page = Page.unexpired.find_by!(url_key: params[:url_key])
 
     if @page.password_digest
       render "new"
@@ -14,7 +14,7 @@ class PermissionsController < ApplicationController
   end
 
   def create
-    @page = Page.find_by(url_key: url_key)
+    @page = Page.unexpired.find_by(url_key: url_key)
     permission = Permission.new(@page)
     if permission.grant_for?(page_password)
       @page.password = page_password
