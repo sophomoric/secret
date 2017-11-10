@@ -3,7 +3,7 @@ class PagePresenter < SimpleDelegator
   OPTIONAL_FIELDS = [:url_key, :password, :duration].freeze
 
   def expires_at_options
-    Expiration::EXPIRES_AT.keys
+    Expiration.expires_at.keys
   end
 
   def optional_fields_state
