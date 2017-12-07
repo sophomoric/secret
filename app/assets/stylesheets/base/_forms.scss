@@ -17,10 +17,6 @@ label {
   font-weight: 600;
   overflow-wrap: break-word;
 
-  &.required::after {
-    content: "*";
-  }
-
   abbr {
     display: none;
   }
