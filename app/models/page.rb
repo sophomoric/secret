@@ -18,13 +18,21 @@ class Page < ActiveRecord::Base
 
   def encryption_key
     if password
-      password + ENV.fetch("SECRET_KEY_BASE")
+      padded_or_chopped(password)
     else
-      ENV.fetch("SECRET_KEY_BASE")
+      padded_or_chopped(ENV["SECRET_KEY_BASE"])
     end
   end
 
   private
+
+  def padded_or_chopped(password)
+    if password.length < 32
+      " " * (32 - password.length) + password
+    else
+      password[0, 32]
+    end
+  end
 
   def set_random_url_key
     self.url_key = SecureRandom.hex(5) unless self.url_key.present?
