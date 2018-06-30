@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.2"
+ruby "2.5.1"
 
 gem "airbrake"
 gem "autoprefixer-rails"
@@ -35,7 +35,6 @@ gem "uglifier", ">= 2.7.2"
 gem "whenever", require: false
 
 group :development do
-  gem "puma"
   gem "thin"
   gem "spring"
   gem "spring-commands-rspec"
@@ -53,7 +52,9 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit"
+  gem "capybara"
+  gem "chromedriver-helper"
+  gem "selenium-webdriver"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "formulaic"

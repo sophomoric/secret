@@ -45,9 +45,11 @@ GEM
     airbrake-ruby (1.5.0)
     airbrussh (1.3.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
     arel (7.1.4)
     ast (2.3.0)
-    attr_encrypted (3.0.3)
+    attr_encrypted (3.1.0)
       encryptor (~> 3.0.0)
     autoprefixer-rails (6.5.0.1)
       execjs
@@ -88,9 +90,11 @@ GEM
     capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
-    capybara-webkit (1.11.1)
-      capybara (>= 2.3.0, < 2.8.0)
-      json
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     chronic (0.10.2)
     clipboard-rails (1.5.15)
     coderay (1.1.1)
@@ -107,10 +111,10 @@ GEM
     daemons (1.2.4)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
-    delayed_job (4.1.2)
-      activesupport (>= 3.0, < 5.1)
-    delayed_job_active_record (4.1.1)
-      activerecord (>= 3.0, < 5.1)
+    delayed_job (4.1.5)
+      activesupport (>= 3.0, < 5.3)
+    delayed_job_active_record (4.1.3)
+      activerecord (>= 3.0, < 5.3)
       delayed_job (>= 3.0, < 5)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -139,6 +143,7 @@ GEM
       faraday (~> 0.9.0)
       faraday_middleware (~> 0.9.1)
       oj (~> 2.0)
+    ffi (1.9.25)
     formulaic (0.3.0)
       activesupport
       capybara
@@ -152,7 +157,8 @@ GEM
       activesupport (>= 4.2.0)
     hashdiff (0.3.0)
     highline (1.7.8)
-    i18n (0.8.6)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.5)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
@@ -163,6 +169,7 @@ GEM
       parser (>= 2.2.3.0)
       term-ansicolor (>= 1.3.2)
       terminal-table (>= 1.5.1)
+    io-like (0.3.0)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -179,7 +186,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.3)
     multipart-post (2.0.0)
     neat (1.7.4)
       bourbon (>= 4.0)
@@ -192,7 +199,7 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     normalize-rails (3.0.3)
-    oj (2.17.4)
+    oj (2.18.5)
     parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.19.0)
@@ -203,7 +210,6 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     public_suffix (2.0.5)
-    puma (2.14.0)
     rack (2.0.3)
     rack-canonical-host (0.2.2)
       addressable (> 0, < 3)
@@ -256,6 +262,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -264,6 +271,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.13.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.3.1)
@@ -309,7 +319,7 @@ GEM
     title (0.0.7)
       i18n
       rails (>= 3.1)
-    tzinfo (1.2.3)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
@@ -349,8 +359,9 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
+  capybara
   capybara-screenshot
-  capybara-webkit
+  chromedriver-helper
   clipboard-rails
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -367,7 +378,6 @@ DEPENDENCIES
   normalize-rails (~> 3.0.0)
   pg
   pry-rails
-  puma
   rack-canonical-host
   rack-timeout
   rails (~> 5.0.0.1)
@@ -376,6 +386,7 @@ DEPENDENCIES
   refills
   rspec-rails
   sass-rails (~> 5.0)
+  selenium-webdriver
   shoulda-matchers
   simple_form
   simplecov
@@ -391,7 +402,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 2.2.2p95
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.13.2
+   1.16.2
