@@ -20,7 +20,6 @@ gem "i18n-tasks"
 gem "jquery-rails"
 gem "autosize-rails"
 gem "neat", "~> 1.7.0"
-gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
 gem "rack-canonical-host"
@@ -35,7 +34,6 @@ gem "uglifier", ">= 2.7.2"
 gem "whenever", require: false
 
 group :development do
-  gem "thin"
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
