@@ -143,10 +143,6 @@ GEM
       faraday_middleware (~> 0.9.1)
       oj (~> 2.0)
     ffi (1.9.25)
-    formulaic (0.3.0)
-      activesupport
-      capybara
-      i18n
     giphy (3.0.0)
       faraday (~> 0.9)
       faraday_middleware (~> 0.9)
@@ -276,9 +272,9 @@ GEM
       rubyzip (~> 1.2)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    simple_form (3.3.1)
-      actionpack (> 4, < 5.1)
-      activemodel (> 4, < 5.1)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -364,7 +360,6 @@ DEPENDENCIES
   delayed_job_active_record
   dotenv-rails
   factory_girl_rails
-  formulaic
   giphy
   i18n-tasks
   jquery-rails
