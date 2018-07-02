@@ -22,6 +22,7 @@ gem "autosize-rails"
 gem "neat", "~> 1.7.0"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
+gem 'puma'
 gem "rack-canonical-host"
 gem "rails", "~> 5.0.1"
 gem "recipient_interceptor"
