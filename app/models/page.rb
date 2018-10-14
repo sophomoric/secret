@@ -24,6 +24,10 @@ class Page < ActiveRecord::Base
     end
   end
 
+  def view!
+    destroy! unless multiview?
+  end
+
   private
 
   def padded_or_chopped(password)

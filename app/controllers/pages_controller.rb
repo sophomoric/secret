@@ -18,6 +18,7 @@ class PagesController < ApplicationController
       :duration,
       :expires_at,
       :message,
+      :multiview,
       :password,
       :redirect,
       :url_key

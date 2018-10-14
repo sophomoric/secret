@@ -27,6 +27,7 @@
       selected: Expiration::DEFAULT
     ) %>
     <%= f.input :redirect, label: "Vanish after several seconds" %>
+    <%= f.input :multiview, label: "Allow page to be viewed multiple times" %>
     <%= f.input(
       :duration,
       input_html: { value: 7, max: 10, min: 1 },
