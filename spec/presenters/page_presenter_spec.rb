@@ -20,4 +20,10 @@ describe PagePresenter do
       expect(page_presenter.optional_fields_state).to eq("")
     end
   end
+
+  describe "#sendable_message" do
+    it 'says' do
+
+    end
+  end
 end
