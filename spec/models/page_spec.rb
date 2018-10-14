@@ -44,4 +44,22 @@ describe Page do
       expect(page.duration).to eq(1)
     end
   end
+
+  describe "#view!" do
+    it "destroys a non multiview page" do
+      page = create(:page, multiview: false)
+
+      page.view!
+
+      expect(Page.find_by_id(page.id)).to be_nil
+    end
+
+    it "destroys a multiview page" do
+      page = create(:page, multiview: true)
+
+      page.view!
+
+      expect(Page.find_by_id(page.id)).to eq(page)
+    end
+  end
 end

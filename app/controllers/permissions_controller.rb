@@ -39,7 +39,7 @@ class PermissionsController < ApplicationController
   end
 
   def reveal(page)
-    page.destroy!
+    page.view!
     render "pages/show"
   end
 
