@@ -4,9 +4,14 @@
   <button>
     <%= image_tag("clippy.svg", alt: "Copy to clipboard") %>
   </button>
-  <input id="copy-text" value="<%= page_url(@page) %>">
+  <textarea id="copy-text" value="<%= @page.sendable_message %>"><%= @page.sendable_message %></textarea>
 </div>
 
 <p>
-  To view and destroy this page click <%= link_to("here", page_url(@page)) %>
+  <% if @page.multiview? %>
+    To view this page click
+  <% else %>
+    To view and destroy this page click
+  <% end %>
+  <%= link_to("here", page_url(@page)) %>
 </p>

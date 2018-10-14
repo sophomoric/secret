@@ -37,6 +37,7 @@
     been viewed. This is disabled by default, but it can be set between 1 and 10
     seconds
   * No password is required if this field is left blank.
+  * Pages can be viewed multiple times. This option is off by default.
 
 ## Expiration
   * If a user loses the url to find a note it will eventually expire.

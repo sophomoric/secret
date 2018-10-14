@@ -8,6 +8,7 @@ class Expiration
 
     def expires_at
       {
+        "1 minute" => 1.minute.from_now,
         "5 minutes" => 5.minutes.from_now,
         "1 hour" => 1.hour.from_now,
         "1 day" => 1.day.from_now,
