@@ -20,7 +20,7 @@ class Page < ActiveRecord::Base
     if password
       padded_or_chopped(password)
     else
-      padded_or_chopped(ENV["SECRET_KEY_BASE"])
+      padded_or_chopped(ENV.fetch("SECRET_KEY_BASE"))
     end
   end
 
