@@ -8,5 +8,6 @@
 </div>
 
 <p>
-  To view and destroy this page click <%= link_to("here", page_url(@page)) %>
+  To view <%= "and <b>destroy</b>".html_safe unless @page.multiview? %> this page click
+  <%= link_to("here", page_url(@page)) %>
 </p>
