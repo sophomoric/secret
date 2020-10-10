@@ -24,7 +24,7 @@ gem "normalize-rails"
 gem "pg"
 gem 'puma'
 gem "rack-canonical-host"
-gem "rails", "~> 5.2.1"
+gem "rails", "~> 5.2.4.3"
 gem "recipient_interceptor"
 gem "redcarpet"
 gem "refills"
