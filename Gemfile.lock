@@ -290,7 +290,7 @@ GEM
       rubyzip (~> 1.2)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    simple_form (4.0.1)
+    simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.12.0)
