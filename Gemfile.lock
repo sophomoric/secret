@@ -104,7 +104,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.10)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -147,11 +147,11 @@ GEM
       faraday_middleware (~> 0.9)
       faraday_middleware-parse_oj (~> 0.3)
       launchy (~> 2.4)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     hashdiff (0.3.7)
     highline (1.7.8)
-    i18n (1.8.5)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.5)
       activesupport (>= 4.0.2)
@@ -183,7 +183,7 @@ GEM
       rake
     mini_mime (1.0.2)
     mini_portile2 (2.6.1)
-    minitest (5.14.2)
+    minitest (5.15.0)
     multipart-post (2.0.0)
     neat (1.7.4)
       bourbon (>= 4.0)
